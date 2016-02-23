@@ -22,7 +22,7 @@
 
           AuthService.save({}, userData, function (response) {
             $window.localStorage.token = response.token;
-            $window.localStorage.user = signupVm.userName;
+            $window.localStorage.user = vm.user;
             $state.go('main.lists');
             // $state.go("main.interests", { username: signupVm.userName });
           }, function (error) {
