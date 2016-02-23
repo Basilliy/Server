@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  angular.module("llamaLists")
+  angular.module("trelloProject")
     .factory('AuthInterceptor', authInterceptor)
     .config(configInterceptors);
 

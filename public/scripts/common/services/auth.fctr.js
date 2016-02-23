@@ -6,7 +6,7 @@
   "use strict";
 
   angular
-    .module("llamaLists")
+    .module("trelloProject")
     .factory("AuthService", AuthService);
 
     AuthService.$inject = ["$resource"];

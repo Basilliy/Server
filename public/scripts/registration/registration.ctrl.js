@@ -5,8 +5,8 @@
     .module('trelloProject')
     .controller('RegistrationPageController', RegistrationPageController);
 
-    RegistrationPageController.$inject = ["$state", "AuthService"];
-    function RegistrationPageController($state, AuthService) {
+    RegistrationPageController.$inject = ["$window", "$state", "AuthService"];
+    function RegistrationPageController($window, $state, AuthService) {
       var vm = this;
       vm.registration = registration;
 
@@ -15,15 +15,15 @@
 
         if (validate) {
           var userData = {
-            username: signupVm.userName,
-            email:    signupVm.userEmail,
-            password: signupVm.userPassword
+            username: vm.name,
+            email:    vm.email,
+            password: vm.password
           }
 
           AuthService.save({}, userData, function (response) {
             $window.localStorage.token = response.token;
             $window.localStorage.user = signupVm.userName;
-            $state.go('main.lists')
+            $state.go('main.lists');
             // $state.go("main.interests", { username: signupVm.userName });
           }, function (error) {
             delete $window.localStorage.token;

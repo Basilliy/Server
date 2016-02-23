@@ -7,8 +7,8 @@ var User    = require("../../app/models/user"), // load up the user model
  * signup request
  */
 exports.signup = function(req, res) {
+  console.log(req.body)
   if (!req.body.username || !req.body.email || !req.body.password) {
-
     return res.status(400).send({
       success: false,
       message: "Ooops! All fields is required"
