@@ -1,0 +1,37 @@
+.lists__header__margin {
+  margin-bottom: 10px;
+}
+
+.lists__navbar {
+  padding: 0 15px;
+  line-height: 50px;
+}
+
+.navbar-brand > .lists__logo {
+  display: inline-block;
+  width: 30px;
+}
+
+.lists__userdata {
+
+}
+
+.lists__avatar {
+  height: 32px;
+  width: 32px;
+  background-color: #fff;
+}
+
+.lists__username {
+  display: inline-block;
+  margin: 15px 10px;
+  color: #777;
+  cursor: pointer;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+}
+
+.user__dropdown {
+  display: block;
+}

@@ -1,0 +1,77 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.home-page {
+  background-image: url(../img/main.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home__header {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home__button {
+  background-color: transparent;
+  border: 0;
+  font-size: 1.1em;
+  font-weight: bolder;
+}
+
+.home__link {
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+  color: #fff;
+  transform: translateZ(0);
+  overflow: hidden;
+}
+
+
+.home__link:visited,
+.home__link:focus,
+.home__link:hover,
+.home__link:active {
+  color: #fff;
+}
+
+.home__link:hover:before,
+.home__link:focus:before,
+.home__link:active:before {
+  right: 0;
+}
+
+.home__link:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  z-index: -1;
+  background: #fff;
+  transition-property: right;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.home {
+  width: 100%;
+  height: calc(100vh - 46px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home__wrapper-content {
+  text-align: center;
+  color: #fff;
+}
+
+.home__logo {
+  height: 80px;
+}

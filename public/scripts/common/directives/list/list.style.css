@@ -1,0 +1,77 @@
+.list {
+  padding: 5px 8px 10px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  box-shadow: 0 1px 2px rgba(43, 59, 93, .29);
+}
+
+.list__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: #555;
+}
+
+.list__header__text {
+  max-width: 90%;
+  display: inline-block;
+}
+
+.list__settings {
+  position: relative;
+  width: 20px;
+  height: 26px;
+  display: inline-block;
+  padding: 3px 0;
+  margin-top: 8px;
+  border-radius: 3px;
+}
+
+.list__settings:hover {
+  background-color: #e5e5e5
+}
+
+.list__dropdown {
+  display: block;
+}
+
+.panel-default--margin {
+  margin-bottom: 6px;
+}
+
+.card__new__textarea {
+  width: 100%;
+  resize: none;
+  outline: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.card__new__close {
+  float: none;
+  font-size: 30px;
+}
+
+.card__new__add {
+  vertical-align: top;
+}
+
+.card__new__close {
+  opacity: .4;
+}
+
+/*.angular-ui-tree-placeholder {
+  background: #f0f9ff;
+  border: 2px dashed #bed2db;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}*/
+
+.card__placeholder > .angular-ui-tree-placeholder {
+  background: #f0f9ff;
+  border: 2px dashed #bed2db;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

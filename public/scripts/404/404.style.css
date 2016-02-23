@@ -1,0 +1,25 @@
+.notfound-page {
+  background-color: #262626;
+}
+
+.notfound {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.notfound__title {
+  color: #fff;
+}
+
+.notfound__image {
+  margin: 20px 0;
+  object-fit: contain;
+}
+
+.notfound__link {
+  font-size: 1.2em;
+}

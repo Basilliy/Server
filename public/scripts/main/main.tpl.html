@@ -1,0 +1,31 @@
+<div class="lists__header">
+  <nav class="navbar navbar-default lists__header__margin">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand lists__navbar" ui-sref="main.lists">
+          <img alt="Brand" src="./img/logo.png" class="lists__logo">
+        </a>
+      </div>
+      <!-- /.navbar-header -->
+      <div class="navbar-right">
+        <div class="lists__userdata" click-outside="vm.closeDropdown()">
+          <img src="./img/default-profile.png" alt="avatar" class="img-circle lists__avatar">
+          <p class="lists__username"  ng-click="vm.showDropdown = !vm.showDropdown">Trello user <span class="caret"></span></p>
+          <ul class="dropdown-menu user__dropdown" ng-show="vm.showDropdown">
+            <li>
+              <a ui-sref="main.profile">Profile</a>
+            </li>
+            <li>
+              <a>Logout</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.lists__userdata -->
+      </div>
+      <!-- /.navbar-right -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <!-- /.navbar -->
+</div>
+<div ui-view></div>

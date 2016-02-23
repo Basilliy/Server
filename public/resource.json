@@ -1,0 +1,89 @@
+{
+  "name": "Milky",
+  "email": "tutu@gmail.com",
+  "password": "123456",
+  "avatar": "aaswq.jpg",
+  "backgroundColor": "green",
+  "lists": [
+    {
+      "title": "Inbox",
+      "cards": [
+        {
+          "text": "Polar bears can eat as many as 86 penguins in a single sitting.",
+          "color": "red",
+          "owners": ["Mike", "John"]
+        },
+        {
+          "text": "The top six foods that make your fart are beans, corn, bell peppers, cauliflower, cabbage and milk!",
+          "color": "green",
+          "owners": ["Mike", "Eva"]
+        },
+        {
+          "text": "Alcohol activates and stimulates the same part of the brain associated with honesty.",
+          "color": "blue",
+          "owners": ["Anastasia", "Jerry"]
+        }
+      ]
+    },
+    {
+      "title": "First list",
+      "cards": [
+        {
+          "text": "Polar bears can eat as many as 86 penguins in a single sitting.",
+          "color": "red",
+          "owners": ["Mike", "John"]
+        },
+        {
+          "text": "The top six foods that make your fart are beans, corn, bell peppers, cauliflower, cabbage and milk!",
+          "color": "green",
+          "owners": ["Mike", "Eva"]
+        },
+        {
+          "text": "Alcohol activates and stimulates the same part of the brain associated with honesty.",
+          "color": "blue",
+          "owners": ["Anastasia", "Jerry"]
+        }
+      ]
+    },
+    {
+      "title": "Second list tararar tutu im a crazy train tyty",
+      "cards": [
+        {
+          "text": "Polar bears can eat as many as 86 penguins in a single sitting.",
+          "color": "red",
+          "owners": ["Mike", "John"]
+        },
+        {
+          "text": "The top six foods that make your fart are beans, corn, bell peppers, cauliflower, cabbage and milk!",
+          "color": "green",
+          "owners": ["Mike", "Eva"]
+        },
+        {
+          "text": "Alcohol activates and stimulates the same part of the brain associated with honesty.",
+          "color": "blue",
+          "owners": ["Anastasia", "Jerry"]
+        }
+      ]
+    },
+    {
+      "title": "Another yet list",
+      "cards": [
+        {
+          "text": "Polar bears can eat as many as 86 penguins in a single sitting.",
+          "color": "red",
+          "owners": ["Mike", "John"]
+        },
+        {
+          "text": "The top six foods that make your fart are beans, corn, bell peppers, cauliflower, cabbage and milk!",
+          "color": "green",
+          "owners": ["Mike", "Eva"]
+        },
+        {
+          "text": "Alcohol activates and stimulates the same part of the brain associated with honesty.",
+          "color": "blue",
+          "owners": ["Anastasia", "Jerry"]
+        }
+      ]
+    }
+  ]
+}

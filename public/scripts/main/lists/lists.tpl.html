@@ -1,0 +1,33 @@
+<section class="lists">
+  <div class="lists__menu">
+    <span class="list__menu__text">... Show menu</span>
+  </div>
+  <div class="lists__content" ng-scrollable="{scrollY:'none', scrollXAlways: true }">
+    <div class="lists__wrapper" ui-tree="listOptions">
+      <div ui-tree-nodes ng-model="vm.lists" class="list__placeholder">
+        <div class="list__wrapper" ng-repeat="list in vm.lists" ui-tree-node on-finish-render>
+          <list data="list" reload="vm.removeList(title)"></list>
+        </div>
+      </div>
+      <div class="list__wrapper list__new well well-sm">
+        <p class="list__new__placeholder"
+           ng-click="vm.setVisibleNewList()"
+           ng-hide="vm.visibleNewList">Add a list...</p>
+        <input type="text"
+               class="list__new__input"
+               ng-model="vm.newListTitle"
+               ng-show="vm.visibleNewList"
+               custom-focus="vm.focusOn">
+        <div class="list__new__controll" ng-show="vm.visibleNewList">
+          <button type="button" class="btn btn-success card__new__add" ng-click="vm.createNewList()">Save</button>
+          <button type="button" class="close card__new__close" aria-label="Close" ng-click="vm.visibleNewList = false">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- /.lists__wrapper -->
+  </div>
+  <!-- /.lists__content -->
+</section>
+<!-- /.lists -->

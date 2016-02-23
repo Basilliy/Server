@@ -1,0 +1,30 @@
+.card__margin {
+  margin-bottom: 10px;
+}
+
+.card__padding {
+  padding: 5px 15px 5px;
+}
+
+.card__text {
+  word-wrap: break-word;
+  margin: 0 0 5px;
+}
+
+.card__color {
+  display: inline-block;
+  width: 15px;
+  height: 5px;
+  background-color: #3aa6eb;
+  border-radius: 5px;
+}
+
+.card__owner {
+  float: right;
+}
+
+.card__owner-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 3px;
+}

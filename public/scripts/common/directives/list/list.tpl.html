@@ -1,0 +1,41 @@
+<div class="list">
+  <div class="list__header" ui-tree-handle>
+    <h4 class="list__header__text" ng-bind="vm.data.title"></h4>
+    <div click-outside="vm.closeDropdown()">
+      <div class="list__settings" ng-click="vm.showDropdown = !vm.showDropdown" data-nodrag >
+        <svg enable-background="new 0 0 24 24" id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <circle cx="12" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="12" cy="19" r="2"/>
+        </svg>
+        <ul class="dropdown-menu list__dropdown" ng-show="vm.showDropdown">
+          <li><a href="" ng-click="vm.removeList()">Remove list</a></li>
+          <li><a href="">Make private</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /.list__header -->
+  <div class="list__cards">
+    <div ui-tree-nodes="" ng-model="vm.data.cards" class="card__placeholder">
+      <card ng-repeat="card in vm.data.cards" data="card" ui-tree-node></card>
+    </div>
+    <!-- /.list__card -->
+    <div class="card__new" ng-show="vm.visibleNewCard">
+      <div class="panel panel-default panel-default--margin">
+        <div class="panel-body">
+          <textarea class="card__new__textarea" ng-model="vm.newCardsText" custom-focus="vm.focusOn"></textarea>
+        </div>
+      </div>
+      <div class="card__new__controll">
+        <button type="button" class="btn btn-success card__new__add" ng-click="vm.createNewCard()">Add</button>
+        <button type="button" class="close card__new__close" aria-label="Close" ng-click="vm.visibleNewCard = false">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- /.list__cards -->
+  <div class="list__footer">
+    <a href="" ng-click="vm.showNewCardInput()" ng-hide="vm.visibleNewCard">Add a beer...</a>
+  </div>
+  <!-- /.list__footer -->
+</div>
