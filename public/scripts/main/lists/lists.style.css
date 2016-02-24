@@ -67,6 +67,10 @@
   font-weight: inherit;
 }
 
+.angular-ui-tree-empty {
+  display: none;
+}
+
 .list__placeholder {
   display: inline-block;
 }

@@ -4,7 +4,7 @@ var User    = require("../../app/models/user"); // load up the user model
  * get all lists request
  */
 exports.getLists = function(req, res) {
-  var queryUser = { name: req.params.id };
+  var queryUser = { name: req.params.user };
 
   User
     .findOne(queryUser)
@@ -16,9 +16,9 @@ exports.getLists = function(req, res) {
       if (user) {
         res.json({ lists: user.lists });
       } else {
-        return res.status(404).send({
-          success: false
-        });
+        // return res.status(404).send({
+        //   success: false
+        // });
       }
   });
 };
@@ -27,7 +27,8 @@ exports.getLists = function(req, res) {
  * save list request
  */
 exports.addList = function(req, res) {
-  var queryUser = { _id: req.user._id };
+  var queryUser = { name: req.params.user };
+  console.log(req.params)
 
   User
     .findOne(queryUser)
@@ -47,28 +48,28 @@ exports.addList = function(req, res) {
     });
 };
 
-// /**
-//  * remove list request
-//  */
-// exports.removeList = function(req, res) {
-//   var listId    = req.params.id;
-//   var queryUser = { _id: req.user._id };
+/**
+ * remove list request
+ */
+exports.removeList = function(req, res) {
+  var listId    = req.params.id;
+  var queryUser = { _id: req.user._id };
 
-//   User
-//     .findOne(queryUser)
-//     .select("lists")
-//     .exec(function(err, user) {
-//       if (err) throw err;
+  User
+    .findOne(queryUser)
+    .select("lists")
+    .exec(function(err, user) {
+      if (err) throw err;
 
-//       user.lists.id(listId).remove();
+      user.lists.id(listId).remove();
 
-//       user.save(function (err, done) {
-//         if (err) return done(err);
+      user.save(function (err, done) {
+        if (err) return done(err);
 
-//         res.json({ lists: done.lists }); // return new array of list
-//       });
-//   });
-// };
+        res.json({ lists: done.lists }); // return new array of list
+      });
+  });
+};
 
 // /**
 //  * put changes in list

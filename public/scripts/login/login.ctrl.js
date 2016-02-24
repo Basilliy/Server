@@ -24,10 +24,8 @@
           AuthService.login({}, userData, function (response) {
             $window.localStorage.token = response.token;
             $window.localStorage.user = response.user;
-            // console.log($window.localStorage.user)
-            $state.go('main.lists');
+            $state.go('main.lists', { username: response.user });
 
-            // $state.go("main.lists", { username: loginVm.username });
           }, function (error) {
             delete $window.localStorage.token;
             vm.message = error.data.message;

@@ -5,10 +5,10 @@
     .module('trelloProject')
     .controller('ListsPageController', ListsPageController);
 
-    ListsPageController.$inject = ["$scope", "$window", "ListService"];
-    function ListsPageController($scope, $window, ListService) {
+    ListsPageController.$inject = ["$scope", "$stateParams", "ListService"];
+    function ListsPageController($scope, $stateParams, ListService) {
       var vm = this;
-      var user = $window.localStorage.user;
+      var user = $stateParams.username;
       vm.visibleNewList = false;
       vm.createNewList = createNewList;
       vm.setVisibleNewList = setVisibleNewList;
@@ -47,7 +47,7 @@
       function createNewList() {
         if (vm.newListTitle) {
 
-          ListService.save({ title: vm.newListTitle }, function (response) {
+          ListService.save({ user: user }, { title: vm.newListTitle }, function (response) {
             vm.lists = response.lists;
 
             vm.focusOn = true;
