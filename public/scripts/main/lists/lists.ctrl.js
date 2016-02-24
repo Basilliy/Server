@@ -8,7 +8,7 @@
     ListsPageController.$inject = ["$scope", "$window", "ListService"];
     function ListsPageController($scope, $window, ListService) {
       var vm = this;
-      console.log($window)
+      var user = $window.localStorage.user;
       vm.visibleNewList = false;
       vm.createNewList = createNewList;
       vm.setVisibleNewList = setVisibleNewList;
@@ -38,7 +38,7 @@
 
 
       function activate() {
-        ListService.get({ user: 'Eugene' }, function(responce) {
+        ListService.get({ user: user }, function(responce) {
           vm.lists = responce.lists;
           setResizeScroll();
         });
