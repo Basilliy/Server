@@ -13,7 +13,7 @@
           templateUrl: './scripts/home/home.tpl.html'
         })
         .state('login', {
-          url: '/login',
+          url: '/signin',
           templateUrl: './scripts/login/login.tpl.html',
           controller: 'LoginPageController',
           controllerAs: 'vm'
@@ -32,7 +32,7 @@
           controllerAs: 'vm'
         })
         .state('main.lists',{
-          url: '/lists',
+          url: '/:username',
           templateUrl: './scripts/main/lists/lists.tpl.html',
           controller: 'ListsPageController',
           controllerAs: 'vm'

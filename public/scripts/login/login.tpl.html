@@ -3,6 +3,7 @@
     <form role="form" name="loginForm" class="auth__form" novalidate>
       <img src="./img/logo_fox.png" alt="brand" class="auth__logo">
       <p class="auth__title">Log into your account</p>
+      <p class="text-danger" ng-bind="vm.message"></p>
       <div class="form-group">
         <input type="email"
                name="email"

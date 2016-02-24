@@ -56,6 +56,7 @@ exports.signup = function(req, res) {
  * login request
  */
 exports.login = function(req, res) {
+  console.log(req.body)
 
   if (!req.body.email || !req.body.password) {
 
@@ -74,7 +75,7 @@ exports.login = function(req, res) {
         if (!user || !user.validPassword(req.body.password)) {
             return res.status(422).send({
                 success: false,
-                message: 'Wrong username or password'
+                message: 'Wrong email or password'
             });
         } else {
           // if user is found and password is right
@@ -83,7 +84,7 @@ exports.login = function(req, res) {
             expiresIn: "7d" // expires in 168 hours
           });
 
-          // return the information including token as JSON
+          // return the information including token as JSON and username
           res.json({ user: user.name, token: token });
         }
       });

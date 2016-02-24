@@ -24,9 +24,9 @@
           AuthService.save({}, userData, function (response) {
             console.log(response);
             $window.localStorage.token = response.token;
-            $window.localStorage.user = vm.user;
-            $state.go('main.lists');
-            // $state.go("main.interests", { username: signupVm.userName });
+            $window.localStorage.user = vm.name;
+            $state.go("main.lists", { username: vm.name });
+
           }, function (error) {
             delete $window.localStorage.token;
             vm.message = error.data.message;
