@@ -23,18 +23,18 @@ module.exports = function(app) {
   // app.put("/api/user/avatar", user.saveAvatarImage);
   // app.put("/api/user/interests", user.saveInterest);
   // app.get("/api/user/interests", user.getInterestsList);
-  // /**
-  //  * list stuff
-  //  **/
+  /**
+   * list stuff
+   **/
   app.get("/api/user/:user/lists", list.getLists);
   app.post("/api/user/:user/lists", list.addList);
   app.delete("/api/user/:user/lists/:id", list.removeList);
   // app.put("/api/lists/:id", list.updateList)
 
-  // /**
-  //  * card stuff
-  //  **/
-  // app.post("/api/lists/:id/card", card.addcard);
+  /**
+   * card stuff
+   **/
+  app.post("/api/user/:user/lists/:list/cards", card.addCard);
   // app.get("/api/lists/:id_list/card", card.getcards);
   // app.get("/api/lists/:id_list/card/:id_card", card.getcard);
   // app.put("/api/lists/:id_list/card/:id_card", card.updatecard);

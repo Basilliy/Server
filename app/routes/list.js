@@ -16,9 +16,9 @@ exports.getLists = function(req, res) {
       if (user) {
         res.json({ lists: user.lists });
       } else {
-        // return res.status(404).send({
-        //   success: false
-        // });
+        return res.status(404).send({
+          success: false
+        });
       }
   });
 };

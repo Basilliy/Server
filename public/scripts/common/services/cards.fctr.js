@@ -3,11 +3,11 @@
 
   angular
     .module('trelloProject')
-    .factory('ListService', ListService);
+    .factory('CardService', CardService);
 
-    ListService.$inject = ['$resource'];
-    function ListService($resource) {
-      var data = $resource("/api/lists/:list/cards/:card", { list: "@list", card: "@card" }, {
+    CardService.$inject = ['$resource'];
+    function CardService($resource) {
+      var data = $resource("/api/user/:user/lists/:list/cards/:card", { user: "@user", list: "@list", card: "@card" }, {
         query: {
           method: "GET",
           isArray: false
