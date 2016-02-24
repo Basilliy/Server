@@ -15,17 +15,17 @@ exports.signup = function(req, res) {
   } else {
 
     User
-      .findOne({ name: req.body.username })
+      .findOne( { $or: [{ name: req.body.username }, { email: req.body.email }] })
       .exec(function (err, user) {
-
         if (err) throw err;
 
         // if find user with name in request
         if (user) {
+
           // return 422 status
           return res.status(422).send({
               success: false,
-              message: "This name is already used",
+              message: "This name or email is already used",
           });
         } else {
           // save to new user test list

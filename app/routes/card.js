@@ -1,32 +1,34 @@
-// var User    = require("../../app/models/user"); // load up the user model
+var User    = require("../../app/models/user"); // load up the user model
 
-// /**
-//  * save card request
-//  */
-// exports.addcard = function(req, res) {
-//   var listId    = req.params.id;
-//   var cardText  = req.body.text;
-//   var queryUser = { _id: req.user._id };
+/**
+ * save card request
+ */
+exports.addCard = function(req, res) {
 
-//   User
-//     .findOne(queryUser)
-//     .select("lists._id lists.cards")
-//     .exec(function (err, user) {
-//       if (err) throw err;
+  var queryUser = { name: req.params.user };
+  var listId    = req.params.list;
+  var cardText  = req.body.text;
 
-//       var list = user.lists.id(listId);
+  User
+    .findOne(queryUser)
+    .exec(function (err, user) {
+      if (err) throw err;
 
-//       list.cards.push({
-//         text: cardText,
-//       });
+      var list = user.lists.id(listId);
 
-//       user.save(function(err, done) {
-//         if (err) return done(err);
+      list.cards.push({
+        text: cardText,
+      });
 
-//         res.json({ cards: list.cards });
-//       });
-//     });
-// };
+      console.log(list.cards)
+
+      user.save(function(err, done) {
+        if (err) return done(err);
+
+        res.json({ cards: list.cards });
+      });
+    });
+};
 
 // /**
 //  * get one card request

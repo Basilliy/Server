@@ -22,9 +22,9 @@
       return directive;
     }
 
-    function cardController(listController) {
-      var vm = this;
 
-      console.log(listController)
+    function cardController() {
+      var vm = this;
+      console.log(vm.data)
     }
 })();

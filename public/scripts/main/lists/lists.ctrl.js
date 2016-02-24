@@ -36,7 +36,6 @@
       //   // $scope.$broadcast('content.changed');
       // });
 
-
       function activate() {
         ListService.get({ user: user }, function(responce) {
           vm.lists = responce.lists;
