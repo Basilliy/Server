@@ -1,7 +1,6 @@
 var morgan       = require("morgan"),
     express      = require("express"),
     mongoose     = require("mongoose"),
-    passport     = require("passport"),
     bodyParser   = require("body-parser"),
     expressJwt   = require("express-jwt"), // middleware that validates JsonWebTokens
     jwt          = require("jsonwebtoken"), // used to create, sign, and verify tokens
