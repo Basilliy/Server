@@ -26,8 +26,8 @@ module.exports = function(app) {
   // /**
   //  * list stuff
   //  **/
-  // app.get("/api/lists/:id", list.getLists);
-  // app.post("/api/lists", list.addList);
+  app.get("/api/lists/:id", list.getLists);
+  app.post("/api/lists", list.addList);
   // app.delete("/api/lists/:id", list.removeList);
   // app.put("/api/lists/:id", list.updateList)
 

@@ -1,43 +1,50 @@
-<div class="auth__wrapper">
-  <form role="form" name="regForm" class="auth__form" novalidate>
-    <img src="./img/logo_fox.png" alt="brand" class="auth__logo">
-    <p class="auth__title">Create account</p>
-    <div class="form-group">
-      <input type="text"
-             name="name"
-             placeholder="Your name"
-             class="form-control"
-             ng-model="vm.name"
-             required>
-      <p class="text-danger"
-         ng-show="(regForm.name.$error.required && !regForm.name.$pristine) || (regForm.name.$pristine && vm.submitted)">Oops! Name is required.</p>
+<section class="auth">
+  <div class="auth__wrapper">
+    <form role="form" name="regForm" class="auth__form" novalidate>
+      <img src="./img/logo_fox.png" alt="brand" class="auth__logo">
+      <p class="auth__title">Create account</p>
+      <p class="text-danger" ng-bind="vm.message"></p>
+      <div class="form-group">
+        <input type="text"
+               name="name"
+               placeholder="Your name"
+               class="form-control"
+               ng-model="vm.name"
+               ng-change="vm.clearMessageError()"
+               required>
+        <p class="text-danger"
+           ng-show="(regForm.name.$error.required && !regForm.name.$pristine) || (regForm.name.$pristine && vm.submitted)">Oops! Name is required.</p>
+      </div>
+      <div class="form-group">
+        <input type="email"
+               name="email"
+               placeholder="Your email"
+               class="form-control"
+               ng-model="vm.email"
+               ng-change="vm.clearMessageError()"
+               required>
+        <p class="text-danger"
+           ng-show="(regForm.email.$error.required && !regForm.email.$pristine) || (regForm.email.$pristine && vm.submitted)">Oops! Email is required.</p>
+        <p class="text-danger"
+           ng-show="regForm.email.$error.email && !regForm.email.$pristine">Oops! Email is incorrect.</p>
+      </div>
+      <div class="form-group">
+        <input type="password"
+               name="password"
+               placeholder="Your password"
+               class="form-control"
+               ng-model="vm.password"
+               ng-change="vm.clearMessageError()"
+               required>
+        <p class="text-danger"
+           ng-show="(regForm.password.$error.required && !regForm.password.$pristine) || (regForm.password.$pristine && vm.submitted)">Oops! Password is required.</p>
+      </div>
+      <button type="submit" class="btn auth__button" ng-click="vm.registration(regForm.$valid)">Sign up</button>
+    </form>
+    <div class="auth__link">
+      <span class="auth__link__text">Already have an account? </span>
+      <a ui-sref="login">Login!</a>
     </div>
-    <div class="form-group">
-      <input type="email"
-             name="email"
-             placeholder="Your email"
-             class="form-control"
-             ng-model="vm.email"
-             required>
-      <p class="text-danger"
-         ng-show="(regForm.email.$error.required && !regForm.email.$pristine) || (regForm.email.$pristine && vm.submitted)">Oops! Email is required.</p>
-      <p class="text-danger"
-         ng-show="regForm.email.$error.email && !regForm.email.$pristine">Oops! Email is incorrect.</p>
-    </div>
-    <div class="form-group">
-      <input type="password"
-             name="password"
-             placeholder="Your password"
-             class="form-control"
-             ng-model="vm.password"
-             required>
-      <p class="text-danger"
-         ng-show="(regForm.password.$error.required && !regForm.password.$pristine) || (regForm.password.$pristine && vm.submitted)">Oops! Password is required.</p>
-    </div>
-    <button type="submit" class="btn auth__button" ng-click="vm.registration(regForm.$valid)">Sign up</button>
-  </form>
-  <div class="auth__link">
-    <span class="auth__link__text">Already have an account? </span>
-    <a ui-sref="login">Login!</a>
   </div>
-</div>
+</section>
+

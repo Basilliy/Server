@@ -12,7 +12,7 @@
           url: '/',
           templateUrl: './scripts/home/home.tpl.html'
         })
-        .state('login',{
+        .state('login', {
           url: '/login',
           templateUrl: './scripts/login/login.tpl.html',
           controller: 'LoginPageController',
@@ -43,7 +43,7 @@
           controller: 'ProfilePageController',
           controllerAs: 'vm'
         })
-        .state('404', {
+        .state('notfound', {
           url: '/404',
           templateUrl: './scripts/404/404.tpl.html'
         });

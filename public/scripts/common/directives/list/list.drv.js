@@ -26,6 +26,7 @@
 
     function listController() {
       var vm = this;
+      console.log(vm.data)
 
       vm.visibleNewCard = false;
       vm.closeDropdown = closeDropdown;

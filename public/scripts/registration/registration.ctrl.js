@@ -9,6 +9,7 @@
     function RegistrationPageController($window, $state, AuthService) {
       var vm = this;
       vm.registration = registration;
+      vm.clearMessageError = clearMessageError;
 
       function registration(validate) {
         vm.submitted = true;
@@ -27,9 +28,15 @@
             // $state.go("main.interests", { username: signupVm.userName });
           }, function (error) {
             delete $window.localStorage.token;
-            signupVm.message = error.data.message;
+            vm.message = error.data.message;
           });
 
+        }
+      }
+
+      function clearMessageError() {
+        if (vm.message) {
+          vm.message = null;
         }
       }
 

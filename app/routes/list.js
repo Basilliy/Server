@@ -4,6 +4,7 @@ var User    = require("../../app/models/user"); // load up the user model
  * get all lists request
  */
 exports.getLists = function(req, res) {
+  console.log(req.user)
   var queryUser = { name: req.params.id };
 
   User
@@ -37,7 +38,6 @@ exports.addList = function(req, res) {
 
       user.lists.push({
         title: req.body.title,
-        date: req.body.date
       });
 
       user.save(function(err, done) {

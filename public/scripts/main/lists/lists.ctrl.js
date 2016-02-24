@@ -5,13 +5,16 @@
     .module('trelloProject')
     .controller('ListsPageController', ListsPageController);
 
-    ListsPageController.$inject = ["$scope", "ListService"];
-    function ListsPageController($scope, ListService) {
+    ListsPageController.$inject = ["$scope", "$window", "ListService"];
+    function ListsPageController($scope, $window, ListService) {
       var vm = this;
+      console.log($window)
       vm.visibleNewList = false;
       vm.createNewList = createNewList;
       vm.setVisibleNewList = setVisibleNewList;
       vm.removeList = removeList;
+
+      activate();
 
       $scope.listOptions = {
         accept: function(sourceNodeScope, destNodesScope, destIndex) {
@@ -33,22 +36,24 @@
       //   // $scope.$broadcast('content.changed');
       // });
 
-      ListService.get(function(responce) {
-        vm.lists = responce.lists;
-        setResizeScroll();
-      });
+
+      function activate() {
+        ListService.get({ user: 'Eugene' }, function(responce) {
+          vm.lists = responce.lists;
+          setResizeScroll();
+        });
+      }
 
       function createNewList() {
         if (vm.newListTitle) {
-          var newList = {
-            title: vm.newListTitle,
-            cards: []
-          }
 
-          vm.lists.push(newList);
-          vm.focusOn = true;
-          vm.newListTitle = null;
-          setResizeScroll();
+          ListService.save({ title: vm.newListTitle }, function (response) {
+            vm.lists = response.lists;
+
+            vm.focusOn = true;
+            vm.newListTitle = null;
+            setResizeScroll();
+          });
         }
       }
 

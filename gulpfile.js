@@ -7,6 +7,8 @@ var rename = require('gulp-rename');
 var cssnano = require("gulp-cssnano");
 var livereload = require('gulp-livereload');
 var sourcemaps = require('gulp-sourcemaps');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
 
 var vendorLibJs = [
   'node_modules/angular/angular.min.js',
@@ -22,6 +24,10 @@ var vendorLibCss = [
   'public/libs/ng-scrollable/min/ng-scrollable.min.css'
 ];
 
+var processors = [
+  autoprefixer
+];
+
 gulp.task('js', function() {
   return gulp.src(['./public/scripts/**/*.js', '!./public/scripts/**/*.spec.js'])
     .pipe(sourcemaps.init())
@@ -34,6 +40,7 @@ gulp.task('js', function() {
 
 gulp.task("css", function() {
   return gulp.src('./public/scripts/**/*.css')
+    .pipe(postcss(processors))
     .pipe(sourcemaps.init())
     .pipe(cssnano())
     .pipe(concat('style.css'))
