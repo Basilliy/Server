@@ -7,8 +7,16 @@
 
     ListService.$inject = ['$resource'];
     function ListService($resource) {
-      return $resource('/card/:id', {
-        id: '@id'
+      var data = $resource("/api/lists/:list/cards/:card", { list: "@list", card: "@card" }, {
+        query: {
+          method: "GET",
+          isArray: false
+        },
+        update:  {
+          method: "PUT"
+        }
       });
+
+      return data;
     }
 })();

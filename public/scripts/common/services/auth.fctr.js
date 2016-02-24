@@ -3,28 +3,28 @@
 **/
 
 (function() {
-  "use strict";
+  'use strict';
 
   angular
-    .module("trelloProject")
-    .factory("AuthService", AuthService);
+    .module('trelloProject')
+    .factory('AuthService', AuthService);
 
-    AuthService.$inject = ["$resource"];
+    AuthService.$inject = ['$resource'];
     function AuthService($resource) {
-      return $resource("/auth/:type", {
-        type: "@type"
+      return $resource('/auth/:type', {
+        type: '@type'
       },
       {
         save: {
-          method: "POST",
+          method: 'POST',
           params: {
-            type: "signup"
+            type: 'signup'
           }
         },
         login: {
-          method: "POST",
+          method: 'POST',
           params: {
-            type: "login"
+            type: 'login'
           }
         }
       });

@@ -23,9 +23,13 @@ app.use(bodyParser.urlencoded({ limit: "1mb", extended: true })); // support enc
 app.use(bodyParser.json({ type: "application/vnd.api+json" })); // parse application/vnd.api+json as json
 
 // We are going to protect /api routes with JWT
-app.use("/api", expressJwt({
-  secret: configAuth.secret
-}));
+app.use("/api",
+  expressJwt({
+    secret: configAuth.secret
+  })
+  .unless({
+    path: ['/api/v1/auth/signup', '/api/v1/auth/login']})
+  );
 
 // catch unauthorization error
 app.use(function (err, req, res, next) {

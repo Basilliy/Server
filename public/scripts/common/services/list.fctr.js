@@ -7,6 +7,16 @@
 
     ListService.$inject = ['$resource'];
     function ListService($resource) {
-      return $resource('resource.json');
+      var data = $resource("/api/lists/:user", { user: "@user" }, {
+        query: {
+          method: "GET",
+          isArray: false
+        },
+        update:  {
+          method: "PUT"
+        }
+      });
+
+      return data;
     }
 })();

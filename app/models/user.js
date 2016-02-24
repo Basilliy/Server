@@ -1,13 +1,13 @@
 // load the things we need
 var mongoose     = require('mongoose'),
     bcrypt       = require('bcrypt-nodejs'),
-    listShema    = require("../../app/models/list").schema; // load List shema
+    listShema    = require('../../app/models/list').schema; // load List shema
 
 var userSchema = mongoose.Schema({
   name:      String,
   email:     String,
   password:  String,
-  avatar:    { type: String, default: "no-avatar.jpg" },
+  avatar:    { type: String, default: 'default-profile.png' },
   lists:     [listShema]
 });
 

@@ -5,23 +5,36 @@
     .module('trelloProject')
     .controller('LoginPageController', LoginPageController);
 
-    LoginPageController.$inject = ['TestService'];
-    function LoginPageController(TestService) {
+    LoginPageController.$inject = ["$window", "$state", "AuthService"];
+    function LoginPageController($window, $state, AuthService) {
       var vm = this;
 
       vm.login = login;
+      vm.clearMessageError = clearMessageError;
 
       function login(validate) {
-        TestService.save({}, { text: 'Im nigga, nigga' }, function (responce) {
-          console.log(responce)
-        });
         vm.submitted = true;
 
         if (validate) {
-          console.log(vm.email)
-          console.log(vm.password)
-          // alert("well done");
+          var userData = {
+            email: vm.email,
+            password: vm.password
+          };
+
+          AuthService.login({}, userData, function (response) {
+            $window.localStorage.token = response.token;
+            $window.localStorage.user = response.user;
+            $state.go('main.lists');
+            // $state.go("main.lists", { username: loginVm.username });
+          }, function (error) {
+            delete $window.localStorage.token;
+            vm.message = error.data.message;
+          });
         }
+      }
+
+      function clearMessageError() {
+        vm.message = null;
       }
     }
 })();

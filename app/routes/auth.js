@@ -7,7 +7,6 @@ var User    = require("../../app/models/user"), // load up the user model
  * signup request
  */
 exports.signup = function(req, res) {
-  console.log(req.body)
   if (!req.body.username || !req.body.email || !req.body.password) {
     return res.status(400).send({
       success: false,
@@ -58,7 +57,7 @@ exports.signup = function(req, res) {
  */
 exports.login = function(req, res) {
 
-  if (!req.body.username || !req.body.password) {
+  if (!req.body.email || !req.body.password) {
 
     return res.status(400).send({
       success: false,
@@ -67,10 +66,9 @@ exports.login = function(req, res) {
   } else {
     // find the user
     User
-      .findOne({ name: req.body.username })
+      .findOne({ email: req.body.email })
       .select("-lists")
       .exec(function (err, user) {
-
         if (err) throw err;
 
         if (!user || !user.validPassword(req.body.password)) {
@@ -86,7 +84,7 @@ exports.login = function(req, res) {
           });
 
           // return the information including token as JSON
-          res.json({ token: token });
+          res.json({ user: user.name, token: token });
         }
       });
   }
