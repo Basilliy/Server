@@ -4,7 +4,6 @@ var User    = require("../../app/models/user"); // load up the user model
  * get all lists request
  */
 exports.getLists = function(req, res) {
-  console.log(req.user)
   var queryUser = { name: req.params.id };
 
   User
@@ -48,54 +47,54 @@ exports.addList = function(req, res) {
     });
 };
 
-/**
- * remove list request
- */
-exports.removeList = function(req, res) {
-  var listId    = req.params.id;
-  var queryUser = { _id: req.user._id };
+// /**
+//  * remove list request
+//  */
+// exports.removeList = function(req, res) {
+//   var listId    = req.params.id;
+//   var queryUser = { _id: req.user._id };
 
-  User
-    .findOne(queryUser)
-    .select("lists")
-    .exec(function(err, user) {
-      if (err) throw err;
+//   User
+//     .findOne(queryUser)
+//     .select("lists")
+//     .exec(function(err, user) {
+//       if (err) throw err;
 
-      user.lists.id(listId).remove();
+//       user.lists.id(listId).remove();
 
-      user.save(function (err, done) {
-        if (err) return done(err);
+//       user.save(function (err, done) {
+//         if (err) return done(err);
 
-        res.json({ lists: done.lists }); // return new array of list
-      });
-  });
-};
+//         res.json({ lists: done.lists }); // return new array of list
+//       });
+//   });
+// };
 
-/**
- * put changes in list
- */
-exports.updateList = function(req, res) {
-  var listId    = req.params.id;
-  var queryUser = { _id: req.user._id };
+// /**
+//  * put changes in list
+//  */
+// exports.updateList = function(req, res) {
+//   var listId    = req.params.id;
+//   var queryUser = { _id: req.user._id };
 
-  User
-    .findOne(queryUser)
-    .select("lists")
-    .exec(function(err, user) {
-      if (err) throw err;
+//   User
+//     .findOne(queryUser)
+//     .select("lists")
+//     .exec(function(err, user) {
+//       if (err) throw err;
 
-      var list = user.lists.id(listId);
+//       var list = user.lists.id(listId);
 
-      if (req.body.image) {
-        list.image = req.body.image;
-      } else if (req.body.title) {
-        list.title = req.body.title;
-      }
+//       if (req.body.image) {
+//         list.image = req.body.image;
+//       } else if (req.body.title) {
+//         list.title = req.body.title;
+//       }
 
-      user.save(function(err, done) {
-        if (err) return done(err);
+//       user.save(function(err, done) {
+//         if (err) return done(err);
 
-        res.json({ success: true });
-      });
-  });
-}
+//         res.json({ success: true });
+//       });
+//   });
+// }
