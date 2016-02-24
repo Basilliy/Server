@@ -28,7 +28,6 @@ exports.getLists = function(req, res) {
  */
 exports.addList = function(req, res) {
   var queryUser = { name: req.params.user };
-  console.log(req.params)
 
   User
     .findOne(queryUser)
@@ -53,7 +52,7 @@ exports.addList = function(req, res) {
  */
 exports.removeList = function(req, res) {
   var listId    = req.params.id;
-  var queryUser = { _id: req.user._id };
+  var queryUser = { name: req.params.user };
 
   User
     .findOne(queryUser)

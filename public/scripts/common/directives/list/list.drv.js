@@ -23,8 +23,8 @@
 
     }
 
-    listController.$inject = ['$stateParams', 'CardService'];
-    function listController($stateParams, CardService) {
+    listController.$inject = ['$stateParams', 'ListService', 'CardService'];
+    function listController($stateParams, ListService, CardService) {
       var vm = this;
       var user = $stateParams.username;
       var listID = vm.data._id;
@@ -44,10 +44,12 @@
         vm.focusOn = true;
       }
 
-      console.log(vm.data)
-
       function removeList() {
-        vm.reload({ title: vm.data.title });
+        ListService.delete({user: user, id: listID }, function (response) {
+          vm.reload();
+          // console.log(response)
+          // vm.data = response.lists;
+        });
       }
 
       function createNewCard() {
@@ -57,7 +59,7 @@
           }
 
           CardService.save({ user: user, list: listID }, { text: vm.newCardsText }, function (response) {
-            vm.data = response.cards;
+            vm.data.cards = response.cards;
             vm.focusOn = true;
             vm.newCardsText = null;
           });

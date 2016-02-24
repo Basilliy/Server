@@ -25,6 +25,6 @@
 
     function cardController() {
       var vm = this;
-      console.log(vm.data)
+      // console.log(vm.data)
     }
 })();

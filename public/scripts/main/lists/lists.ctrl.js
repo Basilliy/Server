@@ -12,7 +12,7 @@
       vm.visibleNewList = false;
       vm.createNewList = createNewList;
       vm.setVisibleNewList = setVisibleNewList;
-      vm.removeList = removeList;
+      vm.reloadLists = reloadLists;
 
       activate();
 
@@ -61,10 +61,8 @@
         vm.focusOn = true;
       }
 
-      function removeList(title) {
-        vm.lists = vm.lists.filter(function(i) {
-          return i.title !== title;
-        });
+      function reloadLists() {
+        activate();
       }
 
       function setResizeScroll() {
