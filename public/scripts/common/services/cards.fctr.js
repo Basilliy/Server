@@ -7,13 +7,13 @@
 
     CardService.$inject = ['$resource'];
     function CardService($resource) {
-      var data = $resource("/api/user/:user/lists/:list/cards/:card", { user: "@user", list: "@list", card: "@card" }, {
+      var data = $resource('/api/user/:user/lists/:list/cards/:card', { user: '@user', list: '@list', card: '@card' }, {
         query: {
-          method: "GET",
+          method: 'GET',
           isArray: false
         },
         update:  {
-          method: "PUT"
+          method: 'PUT'
         }
       });
 

@@ -5,16 +5,18 @@
       <input type="file" class="profile__input-avatar">
       <img ng-src="./img/user-avatars/{{ vm.avatar }}" alt="avatar" class="profile__avatar">
     </div>
-    <form class="profile__form">
+    <form class="profile__form" name="profileForm">
       <div class="form-group">
         <label for="inputName">Full Name</label>
-        <input type="text" class="form-control" id="inputName" ng-model="vm.username">
+        <input type="text" class="form-control" id="inputName" ng-model="vm.username" required>
       </div>
       <div class="form-group">
         <label for="inputPassword">Email</label>
-        <input type="email" class="form-control" id="inputPassword" ng-model="vm.email">
+        <input type="email" class="form-control" id="inputPassword" ng-model="vm.email" required>
       </div>
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success profile__submit" ng-click="vm.updateData(profileForm.$valid)">Submit</button>
+      <div class="alert alert-success" role="alert" ng-show="vm.messageDone" ng-bind="vm.messageDone"></div>
+      <div class="alert alert-danger" role="alert" ng-show="vm.messageError" ng-bind="vm.messageError"></div>
     </form>
   </div>
 </section>

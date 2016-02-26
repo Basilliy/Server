@@ -47,8 +47,6 @@
       function removeList() {
         ListService.delete({user: user, id: listID }, function (response) {
           vm.reload();
-          // console.log(response)
-          // vm.data = response.lists;
         });
       }
 

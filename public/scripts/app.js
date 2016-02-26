@@ -32,7 +32,7 @@
           controllerAs: 'vm'
         })
         .state('main.lists',{
-          url: '/:username',
+          url: '/user/:username',
           templateUrl: './scripts/main/lists/lists.tpl.html',
           controller: 'ListsPageController',
           controllerAs: 'vm'

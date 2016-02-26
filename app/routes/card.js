@@ -20,8 +20,6 @@ exports.addCard = function(req, res) {
         text: cardText,
       });
 
-      console.log(list.cards)
-
       user.save(function(err, done) {
         if (err) return done(err);
 

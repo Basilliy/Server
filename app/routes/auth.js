@@ -56,7 +56,6 @@ exports.signup = function(req, res) {
  * login request
  */
 exports.login = function(req, res) {
-  console.log(req.body)
 
   if (!req.body.email || !req.body.password) {
 
