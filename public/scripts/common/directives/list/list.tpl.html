@@ -1,15 +1,29 @@
 <div class="list">
   <div class="list__header" ui-tree-handle>
-    <h4 class="list__header__text" ng-bind="vm.data.title"></h4>
-    <div click-outside="vm.closeDropdown()">
-      <div class="list__settings" ng-click="vm.showDropdown = !vm.showDropdown" data-nodrag >
-        <svg enable-background="new 0 0 24 24" id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <circle cx="12" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="12" cy="19" r="2"/>
-        </svg>
-        <ul class="dropdown-menu list__dropdown" ng-show="vm.showDropdown">
-          <li><a href="" ng-click="vm.removeList()">Remove list</a></li>
-          <li><a href="">Make private</a></li>
-        </ul>
+    <div class="list__control" ng-hide="vm.visibleEditTitle">
+      <h4 class="list__header__text" ng-bind="vm.data.title"></h4>
+      <div click-outside="vm.closeDropdown()">
+        <div class="list__settings" ng-click="vm.showDropdown = !vm.showDropdown" data-nodrag >
+          <svg enable-background="new 0 0 24 24" id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <circle cx="12" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="12" cy="19" r="2"/>
+          </svg>
+          <ul class="dropdown-menu list__dropdown" ng-show="vm.showDropdown">
+            <li><a href="" ng-click="vm.visibleEditTitle = true">Edit title</a></li>
+            <li><a href="" ng-click="vm.removeList()">Remove list</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="well well-sm list__edit-title" ng-show="vm.visibleEditTitle" data-nodrag>
+      <input type="text"
+             class="list__new__input"
+             ng-model="vm.data.title"
+             custom-focus="vm.focusOn">
+      <div class="list__new__controll">
+        <button type="button" class="btn btn-success card__new__add" ng-click="vm.saveNewTitle()">Save</button>
+        <button type="button" class="close card__new__close" aria-label="Close" ng-click="vm.visibleEditTitle = false">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
   </div>

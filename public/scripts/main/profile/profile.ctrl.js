@@ -9,6 +9,7 @@
     function ProfilePageController($scope, $window, UserService) {
       var vm = this;
       vm.updateData = updateData;
+      vm.changeAvatar = changeAvatar;
 
       activate();
 
@@ -36,6 +37,23 @@
             vm.messageError = error.data.message;
           });
         }
+      }
+
+      function changeAvatar(image) {
+        var reader;
+
+        if (image.type.localeCompare("image/jpeg") !== 0 && image.type.localeCompare("image/png") !== 0) {
+          alert('Image file format must be jpeg or png!');
+        }
+
+        reader = new FileReader();
+        reader.onload = function (event) {
+          UserService.avatar({}, { avatar: event.target.result }, function (response) {
+            vm.avatar = response.avatar;
+            $scope.$emit('reloadUserData');
+          });
+        }
+        reader.readAsDataURL(image);
       }
     }
 

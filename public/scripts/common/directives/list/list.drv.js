@@ -30,6 +30,7 @@
       var listID = vm.data._id;
 
       vm.visibleNewCard = false;
+      vm.editTitle = editTitle;
       vm.closeDropdown = closeDropdown;
       vm.createNewCard = createNewCard;
       vm.showNewCardInput = showNewCardInput;
@@ -62,6 +63,10 @@
             vm.newCardsText = null;
           });
         }
+      }
+
+      function editTitle() {
+
       }
     }
 })();

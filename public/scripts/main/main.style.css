@@ -20,6 +20,7 @@
   height: 32px;
   width: 32px;
   background-color: #fff;
+  object-fit: cover;
 }
 
 .lists__username {

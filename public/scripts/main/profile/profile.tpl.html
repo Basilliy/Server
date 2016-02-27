@@ -2,7 +2,7 @@
   <div class="profile__wrapper">
     <div class="profile__wrapper-avatar">
       <span class="profile__edit-avatar"></span>
-      <input type="file" class="profile__input-avatar">
+      <input type="file" class="profile__input-avatar" file-reader="vm.changeAvatar(image)">
       <img ng-src="./img/user-avatars/{{ vm.avatar }}" alt="avatar" class="profile__avatar">
     </div>
     <form class="profile__form" name="profileForm">

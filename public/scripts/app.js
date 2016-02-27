@@ -19,7 +19,7 @@
           controllerAs: 'vm'
         })
         .state('registration',{
-          url: '/registation',
+          url: '/registration',
           templateUrl: './scripts/registration/registration.tpl.html',
           controller: 'RegistrationPageController',
           controllerAs: 'vm'
