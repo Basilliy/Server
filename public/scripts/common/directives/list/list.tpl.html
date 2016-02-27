@@ -15,16 +15,19 @@
       </div>
     </div>
     <div class="well well-sm list__edit-title" ng-show="vm.visibleEditTitle" data-nodrag>
-      <input type="text"
-             class="list__new__input"
-             ng-model="vm.data.title"
-             custom-focus="vm.focusOn">
-      <div class="list__new__controll">
-        <button type="button" class="btn btn-success card__new__add" ng-click="vm.saveNewTitle()">Save</button>
-        <button type="button" class="close card__new__close" aria-label="Close" ng-click="vm.visibleEditTitle = false">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+      <form name="listTitleForm">
+        <input type="text"
+               class="list__new__input"
+               ng-model="vm.data.title"
+               custom-focus="vm.focusOn"
+               required>
+        <div class="list__new__controll">
+          <button type="button" class="btn btn-success card__new__add" ng-click="vm.saveNewTitle(listTitleForm.$valid)">Save</button>
+          <button type="button" class="close card__new__close" aria-label="Close" ng-click="vm.cancelEditTitle()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
   <!-- /.list__header -->

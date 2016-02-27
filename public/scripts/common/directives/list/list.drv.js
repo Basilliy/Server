@@ -23,18 +23,28 @@
 
     }
 
-    listController.$inject = ['$stateParams', 'ListService', 'CardService'];
-    function listController($stateParams, ListService, CardService) {
+    listController.$inject = ['$scope', '$stateParams', 'ListService', 'CardService'];
+    function listController($scope, $stateParams, ListService, CardService) {
       var vm = this;
       var user = $stateParams.username;
       var listID = vm.data._id;
 
+      var previousText; // for saving
+
       vm.visibleNewCard = false;
-      vm.editTitle = editTitle;
+      vm.saveNewTitle = saveNewTitle;
       vm.closeDropdown = closeDropdown;
       vm.createNewCard = createNewCard;
       vm.showNewCardInput = showNewCardInput;
       vm.removeList = removeList;
+      vm.cancelEditTitle = cancelEditTitle;
+
+      // watch start edit text or not
+      $scope.$watch('vm.visibleEditTitle', function(val) {
+        if (val === true) {
+          previousText = vm.data.title;
+        }
+      })
 
       function closeDropdown() {
         vm.showDropdown = false;
@@ -65,8 +75,17 @@
         }
       }
 
-      function editTitle() {
+      function saveNewTitle(validate) {
+        if (validate) {
+          ListService.update({ user: user, id: listID }, { title: vm.data.title }, function(response) {
+            vm.visibleEditTitle = false;
+          })
+        }
+      }
 
+      function cancelEditTitle() {
+        vm.visibleEditTitle = false;
+        vm.data.title = previousText;
       }
     }
 })();

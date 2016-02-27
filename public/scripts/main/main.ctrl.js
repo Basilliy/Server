@@ -5,11 +5,12 @@
     .module('trelloProject')
     .controller('MainPageController', MainPageController);
 
-    MainPageController.$inject = ['$scope', '$window', 'UserService'];
-    function MainPageController($scope, $window, UserService) {
+    MainPageController.$inject = ['$scope', '$state', '$window', 'UserService'];
+    function MainPageController($scope, $state, $window, UserService) {
       var vm = this;
       vm.showDropdown = false;
       vm.closeDropdown = closeDropdown;
+      vm.logout = logout;
       $scope.$on('reloadUserData', activate);
 
       activate();
@@ -23,6 +24,12 @@
 
       function closeDropdown() {
         vm.showDropdown = false;
+      }
+
+      function logout() {
+        delete $window.localStorage.token;
+        delete $window.localStorage.user;
+        $state.go('home');
       }
     }
 

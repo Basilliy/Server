@@ -70,31 +70,27 @@ exports.removeList = function(req, res) {
   });
 };
 
-// /**
-//  * put changes in list
-//  */
-// exports.updateList = function(req, res) {
-//   var listId    = req.params.id;
-//   var queryUser = { _id: req.user._id };
+/**
+ * put changes in list
+ */
+exports.updateList = function(req, res) {
+  var listId    = req.params.id;
+  var queryUser = { name: req.params.user };
 
-//   User
-//     .findOne(queryUser)
-//     .select("lists")
-//     .exec(function(err, user) {
-//       if (err) throw err;
+  User
+    .findOne(queryUser)
+    .select("lists")
+    .exec(function(err, user) {
+      if (err) throw err;
 
-//       var list = user.lists.id(listId);
+      var list = user.lists.id(listId);
 
-//       if (req.body.image) {
-//         list.image = req.body.image;
-//       } else if (req.body.title) {
-//         list.title = req.body.title;
-//       }
+      list.title = req.body.title;
 
-//       user.save(function(err, done) {
-//         if (err) return done(err);
+      user.save(function(err, done) {
+        if (err) return done(err);
 
-//         res.json({ success: true });
-//       });
-//   });
-// }
+        res.json({ success: true });
+      });
+  });
+}

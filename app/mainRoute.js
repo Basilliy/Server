@@ -29,7 +29,7 @@ module.exports = function(app) {
   app.get("/api/user/:user/lists", list.getLists);
   app.post("/api/user/:user/lists", list.addList);
   app.delete("/api/user/:user/lists/:id", list.removeList);
-  // app.put("/api/lists/:id", list.updateList)
+  app.put("/api/user/:user/lists/:id", list.updateList)
 
   /**
    * card stuff

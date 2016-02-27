@@ -6,7 +6,6 @@
 }
 
 .list__header {
-
   color: #555;
 }
 
@@ -41,6 +40,7 @@
 }
 
 .list__edit-title {
+  padding: 9px 0 0 0;
   margin-bottom: 10px;
   border: 0;
   box-shadow: none;
