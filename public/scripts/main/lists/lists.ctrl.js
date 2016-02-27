@@ -28,6 +28,11 @@
           } if (card === cardPlaceholder) {
             return true;
           }
+        },
+        dropped: function() {
+          console.log('im dropped');
+          console.log(vm.lists)
+          // ListService.
         }
       }
 

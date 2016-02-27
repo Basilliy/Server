@@ -22,7 +22,6 @@
           }
 
           AuthService.save({}, userData, function (response) {
-            console.log(response);
             $window.localStorage.token = response.token;
             $window.localStorage.user = vm.name;
             $state.go("main.lists", { username: vm.name });
