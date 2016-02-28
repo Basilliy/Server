@@ -4,14 +4,17 @@
   /*width: 100%;*/
 }
 
+/* List sidebar menu */
+
 .lists__menu {
+  position: relative;
   text-align: right;
-  margin-right: 5px;
 }
 
 .list__menu__text {
   display: inline-block;
   padding: 5px;
+  margin-right: 5px;
   border-radius: 4px;
 }
 
@@ -20,12 +23,106 @@
   cursor: pointer;
 }
 
+.list__menu-element {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  height: calc(100vh - 52px); /* 52 its header height */
+  width: 300px;
+  z-index: 5;
+  padding: 0 10px;
+  text-align:initial;
+  background-color: #edeff0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+}
+
+.list__menu-header {
+  position: relative;
+}
+
+.list__menu-title {
+  text-align: center;
+  color: #4d4d4d;
+}
+
+.list__menu-close {
+  position: absolute;
+  top: -4px;
+  right: 5px;
+  font-size: 2.5em
+}
+
+.list__menu-divide {
+  height: 1px;
+  padding: 0;
+  margin: 0 auto;
+  background: #d6dadc;
+  border: 0;
+  color: #d6dadc;
+}
+
+
+/* Background */
+
+.list__menu-background-title {
+  font-weight: 600;
+}
+
+.list__menu-background-wrapper {
+  text-align: center;
+}
+
+.list__menu-background-wrapper > div {
+  position: relative;
+  width: 32%;
+  height: 50px;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 6px;
+}
+
+.background--red {
+  background-color: #B04632;
+}
+
+.background--blue {
+  background-color: #0079BF;
+}
+
+.background--orange {
+  background-color: #D29034;
+}
+
+.background--violet {
+  background-color: #89609E;
+}
+
+.background--pink {
+  background-color: #CD5A91;
+}
+
+.background--green {
+  background-color: #519839;
+}
+
+/* Filter */
+
+.list__menu-filter-title {
+  font-weight: 600;
+}
+
+/* Main list content */
+
 .lists__content {
   width: 100%;
+  height: calc(100vh - 100px); /* 100 its header height + different margins*/
+  display: flex;
+  flex-direction: column;
 }
 
 .lists__wrapper {
   margin: 10px 0;
+  flex-grow: 1;
 }
 
 .list__wrapper {

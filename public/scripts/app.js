@@ -56,7 +56,11 @@
     function configRun($rootScope, $state, $window) {
       $rootScope.$on('$stateChangeSuccess', function(event, toState){
         var stateNames = toState.name.split('.');
-        document.body.className = stateNames[stateNames.length - 1] + '-page';
+        var lastState = stateNames[stateNames.length - 1];
+
+        if (lastState !== 'lists') {
+          document.body.className = lastState + '-page';
+        }
       });
     }
 })();

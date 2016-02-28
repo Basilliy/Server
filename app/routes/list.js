@@ -8,13 +8,13 @@ exports.getLists = function(req, res) {
 
   User
     .findOne(queryUser)
-    .select("lists")
+    .select("lists background")
     .lean() // return plain js object, faster then mongo document
     .exec(function(err, user) {
       if (err) throw err;
 
       if (user) {
-        res.json({ lists: user.lists });
+        res.json({ lists: user.lists, background: user.background });
       } else {
         return res.status(404).send({
           success: false

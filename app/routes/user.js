@@ -127,6 +127,22 @@ exports.saveAvatarImage = function(req, res) {
   });
 };
 
+exports.saveUserBackground = function(req, res) {
+  var queryUser = { name: req.body.user };
+
+  User
+    .findOne(queryUser)
+    .select("-lists")
+    .exec(function(err, user) {
+      user.background = req.body.background;
+
+      user.save(function (err) {
+        if (err) return handleError(err);
+        res.json({ success: true });
+      });
+    });
+}
+
 function decodeBase64Image(dataString) {
   var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
   var response = {};

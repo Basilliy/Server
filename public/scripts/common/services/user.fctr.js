@@ -18,6 +18,12 @@
             type: "avatar"
           }
         },
+        background: {
+          method: "PUT",
+          params: {
+            type: "background"
+          }
+        },
         update:  {
           method: "PUT"
         }

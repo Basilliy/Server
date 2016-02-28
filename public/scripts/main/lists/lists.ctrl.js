@@ -30,10 +30,7 @@
           }
         },
         dropped: function() {
-          console.log('im dropped');
-          console.log(vm.lists)
           ListService.sort({ user: user }, {lists: vm.lists}, function(responce) {
-
           });
         }
       }
@@ -46,6 +43,7 @@
       function activate() {
         ListService.get({ user: user }, function(responce) {
           vm.lists = responce.lists;
+          document.body.className = responce.background;
           setResizeScroll();
         });
       }
@@ -69,7 +67,10 @@
       }
 
       function reloadLists() {
-        activate();
+        ListService.get({ user: user }, function(responce) {
+          vm.lists = responce.lists;
+          setResizeScroll();
+        });
       }
 
       function setResizeScroll() {
