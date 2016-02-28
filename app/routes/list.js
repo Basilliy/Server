@@ -94,3 +94,22 @@ exports.updateList = function(req, res) {
       });
   });
 }
+
+exports.sortList = function(req, res) {
+  var queryUser = { name: req.params.user };
+
+  User
+    .findOne(queryUser)
+    .select("lists")
+    .exec(function(err, user) {
+      if (err) throw err;
+
+      user.lists = req.body.lists;
+
+      user.save(function(err, done) {
+        if (err) return done(err);
+
+        res.json({ success: true });
+      });
+  });
+}

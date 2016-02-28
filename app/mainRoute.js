@@ -30,6 +30,7 @@ module.exports = function(app) {
   app.post("/api/user/:user/lists", list.addList);
   app.delete("/api/user/:user/lists/:id", list.removeList);
   app.put("/api/user/:user/lists/:id", list.updateList)
+  app.post("/api/user/:user/lists/sort", list.sortList);
 
   /**
    * card stuff

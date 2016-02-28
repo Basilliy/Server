@@ -32,7 +32,9 @@
         dropped: function() {
           console.log('im dropped');
           console.log(vm.lists)
-          // ListService.
+          ListService.sort({ user: user }, {lists: vm.lists}, function(responce) {
+
+          });
         }
       }
 
