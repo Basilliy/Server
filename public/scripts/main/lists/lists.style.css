@@ -119,6 +119,18 @@
   font-weight: 600;
 }
 
+.list__menu-filter-label {
+  margin-bottom: 5px;
+}
+
+.list__menu-filter-label > div {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 4px;
+  vertical-align: top;
+}
+
 /* Main list content */
 
 .lists__content {

@@ -86,7 +86,11 @@ exports.updateCard = function(req, res, next) {
 
       var card = user.lists.id(listId).cards.id(cardId);
 
-      card.text = req.body.text;
+      if (req.body.text) {
+        card.text = req.body.text;
+      } else if (req.body.color) {
+        card.color = req.body.color;
+      }
 
       user.save(function (err, done) {
         if (err) return done(err);

@@ -3,14 +3,30 @@
     <div class="panel panel-default card__settings"
          ui-tree-handle
          ng-class="{ 'card__dropdown-open': vm.showDropdown, 'card__is-editing': vm.changeCardText }">
-      <div class="panel-body panel-default--margin card__padding">
+      <div class="panel-body card__padding">
         <header class="card__header">
-          <span class="card__color"></span>
+          <span class="card__color" ng-class="vm.data.color" ng-show="vm.data.color"></span>
           <div class="card__edit" ng-click="vm.editCard()" data-nodrag click-outside="vm.closeDropdown()">
             <span class="card__edit-pen" ng-class="{ 'pen__is-active': vm.showDropdown }"></span>
             <ul class="card__dropdown" ng-show="vm.showDropdown">
               <li class="card__list" ng-click="vm.changeCardText = true">Edit card</li>
-              <li class="card__list">Edit label</li>
+              <li>
+                <hr class="card__dropdown-separator">
+              </li>
+              <li class="card__list card__list--no-select">
+                <span class="card__desk">Edit label</span>
+                <div class="card__color-lists">
+                  <span class="card__color--green" ng-click="vm.setCardColor($event)"></span>
+                  <span class="card__color--yellow" ng-click="vm.setCardColor($event)"></span>
+                  <span class="card__color--orange" ng-click="vm.setCardColor($event)"></span>
+                  <span class="card__color--red" ng-click="vm.setCardColor($event)"></span>
+                  <span class="card__color--violet" ng-click="vm.setCardColor($event)"></span>
+                  <span class="card__color--blue" ng-click="vm.setCardColor($event)"></span>
+                </div>
+              </li>
+              <li>
+                <hr class="card__dropdown-separator">
+              </li>
               <li class="card__list" ng-click="vm.removeCard()">Remove card</li>
             </ul>
             <!-- /.card__dropdown -->

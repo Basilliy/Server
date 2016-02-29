@@ -4,7 +4,6 @@ var mongoose   = require('mongoose')
 
 var listSchema = mongoose.Schema({
   title:     String,
-  delitable: Boolean,
   cards:     [cardShema]
 });
 

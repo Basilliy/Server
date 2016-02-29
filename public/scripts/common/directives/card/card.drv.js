@@ -35,13 +35,16 @@
       vm.closeDropdown = closeDropdown;
       vm.closeEditingCard = closeEditingCard;
       vm.saveEditingCard = saveEditingCard;
+      vm.setCardColor = setCardColor;
 
       $scope.$watch('vm.changeCardText', function(val) {
         if (val === true) {
           previousText = vm.data.text;
           vm.focusOn = true;
         }
-      })
+      });
+
+      console.log(vm.data.color)
 
       function editCard() {
         vm.showDropdown = (vm.showDropdown)
@@ -70,6 +73,14 @@
             vm.changeCardText = false;
           });
         }
+      }
+
+      function setCardColor(event) {
+        var color = event.target.className;
+
+        CardService.update({ user: user, list: listID, card: cardID }, { color: color }, function (response) {
+          vm.data.color = color;
+        });
       }
       // console.log(vm.data)
     }

@@ -46,17 +46,18 @@
 
 .card__color {
   position: relative;
-  top: 8px;
   display: inline-block;
-  width: 15px;
-  height: 5px;
+  width: 26px;
+  height: 6px;
+  margin: 8px 0;
   vertical-align: top;
   background-color: #3aa6eb;
   border-radius: 5px;
 }
 
 .card__edit {
-  position: relative;
+  position: absolute;
+  right: 5px;
   display: inline-block;
   cursor: pointer;
 }
@@ -83,13 +84,11 @@
 }
 
 .card__dropdown {
-  /*display: none;*/
   position: absolute;
   top: -6px;
   right: -150px;
   min-width: 140px;
   padding: 5px;
-  /*margin: 2px 0 0;*/
   border: 1px solid #ccc;
   background-color: #fff;
   z-index: 1000;
@@ -126,4 +125,57 @@
   height: 30px;
   width: 30px;
   border-radius: 3px;
+}
+
+/* card color */
+
+.card__dropdown-separator {
+  height: 1px;
+  padding: 0;
+  margin: 0 auto;
+  background-color: #ddd;
+  border: 0;
+  color: #ddd;
+}
+
+.card__list--no-select:hover {
+  background-color: #fff;
+}
+
+.card__desk {
+  display: inline-block;
+  color: #aaa;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+.card__color-lists > span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.card__color--green {
+  background-color: #61bd4f;
+}
+
+.card__color--yellow {
+  background-color: #f2d600;
+}
+
+.card__color--orange {
+  background-color: #ffab4a;
+}
+
+.card__color--red {
+  background-color: #eb5a46;
+}
+
+.card__color--violet {
+  background-color: #c377e0;
+}
+
+.card__color--blue {
+  background-color: #0079bf;
 }

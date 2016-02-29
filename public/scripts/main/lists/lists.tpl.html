@@ -27,32 +27,43 @@
           <!-- /.list__menu-background-wrapper -->
         </div>
         <!-- /.list__menu-change-background -->
-        <div class="list__menu-filter" style="display: none;">
+        <div class="list__menu-filter">
           <h5 class="list__menu-filter-title">Filter cards</h5>
           <div class="list__menu-filter-wrapper">
             <div class="list__menu-filter-label">
-              <div class="list__menu-filter-square list__menu-filter-square--green"></div>
+              <div class="card__color--green"></div>
               <span class="list__menu-filter-text">green label</span>
+              <span class="list__menu-filter-check"></span>
             </div>
             <!-- /.list__menu-filter-label -->
             <div class="list__menu-filter-label">
-              <div class="list__menu-filter-square list__menu-filter-square--red"></div>
+              <div class="card__color--yellow"></div>
               <span class="list__menu-filter-text">red label</span>
+              <span class="list__menu-filter-check"></span>
             </div>
             <!-- /.list__menu-filter-label -->
             <div class="list__menu-filter-label">
-              <div class="list__menu-filter-square list__menu-filter-square--blue"></div>
+              <div class="card__color--orange"></div>
               <span class="list__menu-filter-text">blue label</span>
+              <span class="list__menu-filter-check"></span>
             </div>
             <!-- /.list__menu-filter-label -->
             <div class="list__menu-filter-label">
-              <div class="list__menu-filter-square list__menu-filter-square--orange"></div>
+              <div class="card__color--red"></div>
               <span class="list__menu-filter-text">orange label</span>
+              <span class="list__menu-filter-check"></span>
             </div>
             <!-- /.list__menu-filter-label -->
             <div class="list__menu-filter-label">
-              <div class="list__menu-filter-square list__menu-filter-square--pink"></div>
+              <div class="card__color--violet"></div>
               <span class="list__menu-filter-text">pink label</span>
+              <span class="list__menu-filter-check"></span>
+            </div>
+            <!-- /.list__menu-filter-label -->
+            <div class="list__menu-filter-label">
+              <div class="card__color--blue"></div>
+              <span class="list__menu-filter-text">pink label</span>
+              <span class="list__menu-filter-check"></span>
             </div>
             <!-- /.list__menu-filter-label -->
           </div>
@@ -64,7 +75,7 @@
     <!-- /.list__menu-element -->
   </div>
   <!-- /.lists__menu -->
-  <div class="lists__content" ng-scrollable="{scrollY:'none', scrollXAlways: true, preventKeyEvents: false }">
+  <div class="lists__content" ng-scrollable="{scrollY:'right', scrollXAlways: true, preventKeyEvents: false }">
     <div class="lists__wrapper" ui-tree="listOptions">
       <div ui-tree-nodes ng-model="vm.lists" class="list__placeholder">
         <div class="list__wrapper" ng-repeat="list in vm.lists" ui-tree-node on-finish-render>

@@ -37,7 +37,6 @@ module.exports = function(app) {
    **/
   app.get("/api/user/:user/lists/:list/cards", card.getCards);
   app.post("/api/user/:user/lists/:list/cards", card.addCard);
-  // app.get("/api/lists/:id_list/card/:id_card", card.getcard);
   app.put("/api/user/:user/lists/:list/cards/:card", card.updateCard);
   app.delete("/api/user/:user/lists/:list/cards/:card", card.removeCard);
 

@@ -26,21 +26,27 @@ exports.saveUserData = function(req, res) {
   var queryUser = { _id: req.user._id };
 
   // im using nested query, because i didn't find more pretty solution, sorry =(o_o)=
-
   User
     .findOne(queryUser)
     .select("-lists")
     .exec(function(err, user) {
       var currentName = user.name;
+      var currentEmail = user.email;
 
       User
-        .findOne({ name: userData.name })
-        .select("name")
+        .findOne({ $or: [{ name: userData.name }, { email: userData.email }] })
+        .select("name email")
         .exec(function(err, done) {
-          if (done && done.name !== currentName) {
+          console.log(done)
+          if (done && (done.name === userData.name) && (done.name !== currentName)) {
             return res.status(422).send({
                 success: false,
-                message: "This name is already used",
+                message: "This name already being used",
+            });
+          } else if (done && (done.email === userData.email) && (done.email !== currentEmail)){
+            return res.status(422).send({
+                success: false,
+                message: "This email already being used",
             });
           } else {
             user.name = userData.name;

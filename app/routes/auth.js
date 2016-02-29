@@ -25,7 +25,7 @@ exports.signup = function(req, res) {
           // return 422 status
           return res.status(422).send({
               success: false,
-              message: "This name or email is already used",
+              message: "This name or email already being used",
           });
         } else {
           // save to new user test list
@@ -73,8 +73,8 @@ exports.login = function(req, res) {
 
         if (!user || !user.validPassword(req.body.password)) {
             return res.status(422).send({
-                success: false,
-                message: 'Wrong email or password'
+              success: false,
+              message: 'Wrong email or password'
             });
         } else {
           // if user is found and password is right
