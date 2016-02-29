@@ -1,13 +1,15 @@
 <div class="list__card" >
   <div class="list__card__details">
-    <div class="panel panel-default card__settings" ui-tree-handle ng-class="{ 'card__is-editing': vm.editingCard }">
+    <div class="panel panel-default card__settings"
+         ui-tree-handle
+         ng-class="{ 'card__dropdown-open': vm.showDropdown, 'card__is-editing': vm.changeCardText }">
       <div class="panel-body panel-default--margin card__padding">
         <header class="card__header">
           <span class="card__color"></span>
           <div class="card__edit" ng-click="vm.editCard()" data-nodrag click-outside="vm.closeDropdown()">
-            <span class="card__edit-pen" ng-class="{ 'pen__is-active': vm.editingCard }"></span>
-            <ul class="card__dropdown" ng-show="vm.editingCard">
-              <li class="card__list">Edit card</li>
+            <span class="card__edit-pen" ng-class="{ 'pen__is-active': vm.showDropdown }"></span>
+            <ul class="card__dropdown" ng-show="vm.showDropdown">
+              <li class="card__list" ng-click="vm.changeCardText = true">Edit card</li>
               <li class="card__list">Edit label</li>
               <li class="card__list" ng-click="vm.removeCard()">Remove card</li>
             </ul>
@@ -16,8 +18,18 @@
           <!-- /.card__edit -->
         </header>
         <!-- /.card__header -->
-        <p class="card__text" ng-bind="vm.data.text"></p>
-        <div class="card__owner">
+        <div>
+          <p class="card__text" ng-bind="vm.data.text" ng-hide="vm.changeCardText"></p>
+          <div class="card__edit__controll" data-nodrag ng-show="vm.changeCardText">
+            <textarea ng-model="vm.data.text" msd-elastic class="card__edit-textarea"></textarea>
+            <button type="button" class="btn btn-success card__new__add" ng-click="vm.saveEditingCard()">Save</button>
+            <button type="button" class="close card__new__close" aria-label="Close" ng-click="vm.closeEditingCard()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card__owner" style="display: none;">
           <img src="./img/user-avatars/asde.jpg" alt="" class="card__owner-avatar">
           <img src="./img/user-avatars/qwea.jpg" alt="" class="card__owner-avatar">
         </div>

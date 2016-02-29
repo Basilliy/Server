@@ -16,7 +16,8 @@ var vendorLibJs = [
   'node_modules/angular-ui-router/release/angular-ui-router.min.js', // official library
   'node_modules/angular-resource/angular-resource.min.js', // official library
   'node_modules/angular-ui-tree/dist/angular-ui-tree.js', // third-party library
-  'public/libs/ng-scrollable/min/ng-scrollable.min.js' // third-party library
+  'public/libs/ng-scrollable/min/ng-scrollable.min.js', // third-party library
+  'node_modules/angular-elastic/elastic.js' // third-party library
 ];
 
 var vendorLibCss = [

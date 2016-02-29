@@ -164,18 +164,6 @@
   margin-top: 10px;
 }
 
-.angular-ui-tree-nodes .angular-ui-tree-nodes {
-  padding-left: 0;
-}
-
-.angular-ui-tree-handle {
-  font-weight: inherit;
-}
-
-.angular-ui-tree-empty {
-  display: none;
-}
-
 .list__placeholder {
   display: inline-block;
 }
@@ -189,8 +177,4 @@
   border-color: transparent;
   box-shadow: none;
   border-radius: 3px;
-}
-
-.angular-ui-tree-handle {
-  cursor: -webkit-grab;
 }

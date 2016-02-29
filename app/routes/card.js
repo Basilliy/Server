@@ -70,37 +70,28 @@ exports.removeCard = function(req, res) {
   });
 };
 
-// /**
-//  * put changes in card
-//  */
-// exports.updatecard = function(req, res, next) {
-//   var listId    = req.params.id_list;
-//   var cardId    = req.params.id_card;
-//   var queryUser = { _id: req.user._id };
+/**
+ * put changes in card
+ */
+exports.updateCard = function(req, res, next) {
+  var listId    = req.params.list;
+  var cardId    = req.params.card;
+  var queryUser = { name: req.params.user };
 
-//   User
-//     .findOne(queryUser)
-//     .select("lists._id lists.cards")
-//     .exec(function (err, user) {
-//       if (err) throw err;
+  User
+    .findOne(queryUser)
+    .select("lists._id lists.cards")
+    .exec(function (err, user) {
+      if (err) throw err;
 
-//       var card = user.lists.id(listId).cards.id(cardId);
+      var card = user.lists.id(listId).cards.id(cardId);
 
-//       if (req.body.completed) {
-//         card.completed = (card.completed)
-//           ? false
-//           : true;
-//       } else if (req.body.color) {
-//         card.color = req.body.color;
-//       } else if (req.body.text) {
-//         card.text = req.body.text;
-//       }
+      card.text = req.body.text;
 
+      user.save(function (err, done) {
+        if (err) return done(err);
 
-//       user.save(function (err, done) {
-//         if (err) return done(err);
-
-//         res.json({ card: card });
-//       });
-//   });
-// };
+        res.json({ success: true });
+      });
+  });
+};

@@ -14,8 +14,16 @@
   background-color: #edeff0;
 }
 
-.card__is-editing {
+.card__dropdown-open {
   background-color: #edeff0;
+}
+
+.card__is-editing {
+  background-color: #fff;
+}
+
+.card__is-editing.card__settings:hover  {
+  background-color: #fff;
 }
 
 .card__padding {
@@ -55,9 +63,9 @@
 
 .card__edit-pen {
   display: inline-block;
-  /*position: absolute;*/
-  top: 10px;
-  right: 10px;
+  position: relative;
+  top: 4px;
+  /*right: 10px;*/
   width: 18px;
   height: 18px;
   opacity: 0;
@@ -88,6 +96,13 @@
   list-style: none;
   border-radius: 4px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.card__edit-textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  resize: none;
 }
 
 .card__list {

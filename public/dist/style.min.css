@@ -1,3 +1,23 @@
+body {
+  overflow: hidden;
+}
+
+.angular-ui-tree-nodes .angular-ui-tree-nodes {
+  padding-left: 0;
+}
+
+.angular-ui-tree-handle {
+  font-weight: inherit;
+}
+
+.angular-ui-tree-empty {
+  display: none;
+}
+
+.angular-ui-tree-handle {
+  cursor: -webkit-grab;
+}
+
 .notfound-page {
   background-color: #262626;
 }
@@ -446,18 +466,6 @@ opacity: .5
   margin-top: 10px;
 }
 
-.angular-ui-tree-nodes .angular-ui-tree-nodes {
-  padding-left: 0;
-}
-
-.angular-ui-tree-handle {
-  font-weight: inherit;
-}
-
-.angular-ui-tree-empty {
-  display: none;
-}
-
 .list__placeholder {
   display: inline-block;
 }
@@ -471,10 +479,6 @@ opacity: .5
   border-color: transparent;
   box-shadow: none;
   border-radius: 3px;
-}
-
-.angular-ui-tree-handle {
-  cursor: -webkit-grab;
 }
 
 .profile__wrapper {
@@ -550,8 +554,16 @@ opacity: .5
   background-color: #edeff0;
 }
 
-.card__is-editing {
+.card__dropdown-open {
   background-color: #edeff0;
+}
+
+.card__is-editing {
+  background-color: #fff;
+}
+
+.card__is-editing.card__settings:hover  {
+  background-color: #fff;
 }
 
 .card__padding {
@@ -597,9 +609,9 @@ opacity: .5
 
 .card__edit-pen {
   display: inline-block;
-  /*position: absolute;*/
-  top: 10px;
-  right: 10px;
+  position: relative;
+  top: 4px;
+  /*right: 10px;*/
   width: 18px;
   height: 18px;
   opacity: 0;
@@ -630,6 +642,13 @@ opacity: .5
   list-style: none;
   border-radius: 4px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.card__edit-textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  resize: none;
 }
 
 .card__list {
@@ -740,14 +759,6 @@ opacity: .5
 .card__new__close {
   opacity: .4;
 }
-
-/*.angular-ui-tree-placeholder {
-  background: #f0f9ff;
-  border: 2px dashed #bed2db;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}*/
 
 .card__placeholder > .angular-ui-tree-placeholder {
   background: #f0f9ff;

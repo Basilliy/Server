@@ -23,31 +23,52 @@
       return directive;
     }
 
-    cardController.$inject = ['$stateParams', 'CardService'];
-    function cardController($stateParams, CardService) {
+    cardController.$inject = ['$scope', '$stateParams', 'CardService'];
+    function cardController($scope, $stateParams, CardService) {
       var vm = this;
       var user = $stateParams.username;
       var cardID = vm.data._id;
       var listID = vm.listId;
+      var previousText;
       vm.removeCard = removeCard;
       vm.editCard = editCard;
       vm.closeDropdown = closeDropdown;
+      vm.closeEditingCard = closeEditingCard;
+      vm.saveEditingCard = saveEditingCard;
 
+      $scope.$watch('vm.changeCardText', function(val) {
+        if (val === true) {
+          previousText = vm.data.text;
+        }
+      })
 
       function editCard() {
-        vm.editingCard = (vm.editingCard)
+        vm.showDropdown = (vm.showDropdown)
         ? false
         : true;
       }
 
       function closeDropdown() {
-        vm.editingCard = false;
+        vm.showDropdown = false;
+      }
+
+      function closeEditingCard() {
+        vm.data.text = previousText;
+        vm.changeCardText = false;
       }
 
       function removeCard() {
         CardService.delete({ user: user, list: listID, card: cardID }, function (response) {
           vm.reload();
         });
+      }
+
+      function saveEditingCard() {
+        if(vm.data.text) {
+          CardService.update({ user: user, list: listID, card: cardID }, { text: vm.data.text }, function (response) {
+            vm.changeCardText = false;
+          });
+        }
       }
       // console.log(vm.data)
     }
