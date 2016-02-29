@@ -35,7 +35,9 @@
 
 
       function editCard() {
-        vm.editingCard = true;
+        vm.editingCard = (vm.editingCard)
+        ? false
+        : true;
       }
 
       function closeDropdown() {

@@ -1,11 +1,11 @@
-<div class="list__card" ng-class="{ 'card__is-editing': vm.editingCard }">
+<div class="list__card" >
   <div class="list__card__details">
-    <div class="panel panel-default card__settings" ui-tree-handle>
+    <div class="panel panel-default card__settings" ui-tree-handle ng-class="{ 'card__is-editing': vm.editingCard }">
       <div class="panel-body panel-default--margin card__padding">
         <header class="card__header">
           <span class="card__color"></span>
           <div class="card__edit" ng-click="vm.editCard()" data-nodrag click-outside="vm.closeDropdown()">
-            <span class="card__edit-pen"></span>
+            <span class="card__edit-pen" ng-class="{ 'pen__is-active': vm.editingCard }"></span>
             <ul class="card__dropdown" ng-show="vm.editingCard">
               <li class="card__list">Edit card</li>
               <li class="card__list">Edit label</li>

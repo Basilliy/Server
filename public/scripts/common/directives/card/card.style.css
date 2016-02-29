@@ -14,6 +14,10 @@
   background-color: #edeff0;
 }
 
+.card__is-editing {
+  background-color: #edeff0;
+}
+
 .card__padding {
   padding: 5px 10px;
 }
@@ -65,11 +69,16 @@
   background: svg-inline(editpen-hover);
 }
 
+.pen__is-active {
+  opacity: 1;
+  background: svg-inline(editpen-hover);
+}
+
 .card__dropdown {
+  /*display: none;*/
   position: absolute;
-  top: -8px;
+  top: -6px;
   right: -150px;
-  display: block;
   min-width: 140px;
   padding: 5px;
   /*margin: 2px 0 0;*/

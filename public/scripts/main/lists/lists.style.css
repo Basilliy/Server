@@ -16,6 +16,7 @@
   padding: 5px;
   margin-right: 5px;
   border-radius: 4px;
+  color: #fff;
 }
 
 .list__menu__text:hover {
@@ -27,6 +28,7 @@
   position: absolute;
   top: -10px;
   right: 0;
+  right: -300px;
   height: calc(100vh - 50px); /* 50 its header height */
   width: 300px;
   z-index: 5;
@@ -34,6 +36,12 @@
   text-align:initial;
   background-color: #edeff0;
   box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+  transition: right 300ms ease;
+  transform: translateZ(0);
+}
+
+.list__menu-is-active {
+  right: 0;
 }
 
 .list__menu-header {

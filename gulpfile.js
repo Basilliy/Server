@@ -72,20 +72,6 @@ gulp.task("watch", function() {
   gulp.watch('./public/scripts/**/*.js', ['js']);
 });
 
-
-gulp.task("test-css", function() {
-  return gulp.src('./public/scripts/**/*.css')
-    .pipe(concat('style.css'))
-    .pipe(gulp.dest('./public/dist'));
-});
-
-gulp.task("test-js", function() {
-  return gulp.src(['./public/scripts/**/*.js', '!./public/scripts/**/*.test.js'])
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('./public/dist'));
-});
-
-
 gulp.task("default", ["watch"]);
 
 

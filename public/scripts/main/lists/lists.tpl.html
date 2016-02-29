@@ -1,10 +1,10 @@
 <section class="lists">
   <div class="lists__menu">
-    <span class="list__menu__text">... Show menu</span>
-    <div class="list__menu-element">
+    <span class="list__menu__text" ng-click="vm.listMenuOpen = true">... Show menu</span>
+    <div class="list__menu-element" ng-class="{'list__menu-is-active': vm.listMenuOpen}">
       <header class="list__menu-header">
         <h3 class="list__menu-title">Menu</h3>
-        <button type="button" aria-label="Close" class="close list__menu-close">
+        <button type="button" aria-label="Close" class="close list__menu-close" ng-click="vm.listMenuOpen = false">
           <span aria-hidden="true">&times;</span>
         </button>
         <div class="list__menu-divide"></div>
@@ -27,7 +27,7 @@
           <!-- /.list__menu-background-wrapper -->
         </div>
         <!-- /.list__menu-change-background -->
-        <div class="list__menu-filter">
+        <div class="list__menu-filter" style="display: none;">
           <h5 class="list__menu-filter-title">Filter cards</h5>
           <div class="list__menu-filter-wrapper">
             <div class="list__menu-filter-label">
