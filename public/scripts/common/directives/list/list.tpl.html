@@ -33,7 +33,7 @@
   <!-- /.list__header -->
   <div class="list__cards">
     <div ui-tree-nodes="" ng-model="vm.data.cards" class="card__placeholder">
-      <card ng-repeat="card in vm.data.cards" data="card" ui-tree-node></card>
+      <card ng-repeat="card in vm.data.cards" data="card" list-id="vm.data._id" reload="vm.reloadCard()" ui-tree-node></card>
     </div>
     <!-- /.list__card -->
     <div class="card__new" ng-show="vm.visibleNewCard">

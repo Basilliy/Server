@@ -1,14 +1,33 @@
-<div class="list__card">
-  <div class="list__card__details"></div>
-    <div class="panel panel-default card__margin" ui-tree-handle>
+<div class="list__card" ng-class="{ 'card__is-editing': vm.editingCard }">
+  <div class="list__card__details">
+    <div class="panel panel-default card__settings" ui-tree-handle>
       <div class="panel-body panel-default--margin card__padding">
-        <span class="card__color"></span>
+        <header class="card__header">
+          <span class="card__color"></span>
+          <div class="card__edit" ng-click="vm.editCard()" data-nodrag click-outside="vm.closeDropdown()">
+            <span class="card__edit-pen"></span>
+            <ul class="card__dropdown" ng-show="vm.editingCard">
+              <li class="card__list">Edit card</li>
+              <li class="card__list">Edit label</li>
+              <li class="card__list" ng-click="vm.removeCard()">Remove card</li>
+            </ul>
+            <!-- /.card__dropdown -->
+          </div>
+          <!-- /.card__edit -->
+        </header>
+        <!-- /.card__header -->
         <p class="card__text" ng-bind="vm.data.text"></p>
         <div class="card__owner">
           <img src="./img/user-avatars/asde.jpg" alt="" class="card__owner-avatar">
           <img src="./img/user-avatars/qwea.jpg" alt="" class="card__owner-avatar">
         </div>
+        <!-- /.card__owner -->
       </div>
+      <!-- /.card__padding -->
     </div>
+    <!-- /.card__settings -->
+  </div>
+  <!-- /.list__card__details -->
   <div class="list__card__members"></div>
+  <!-- /.list__card__members -->
 </div>

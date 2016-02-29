@@ -9,6 +9,7 @@ var livereload = require('gulp-livereload');
 var sourcemaps = require('gulp-sourcemaps');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
+var inlineSvg = require('postcss-inline-svg');
 
 var vendorLibJs = [
   'node_modules/angular/angular.min.js',
@@ -25,7 +26,8 @@ var vendorLibCss = [
 ];
 
 var processors = [
-  autoprefixer
+  autoprefixer,
+  inlineSvg
 ];
 
 gulp.task('js', function() {
@@ -42,7 +44,7 @@ gulp.task("css", function() {
   return gulp.src('./public/scripts/**/*.css')
     .pipe(postcss(processors))
     .pipe(sourcemaps.init())
-    .pipe(cssnano())
+    // .pipe(cssnano({safe: true}))
     .pipe(concat('style.css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write("."))

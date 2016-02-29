@@ -38,6 +38,7 @@
       vm.showNewCardInput = showNewCardInput;
       vm.removeList = removeList;
       vm.cancelEditTitle = cancelEditTitle;
+      vm.reloadCard = reloadCard;
 
       // watch start edit text or not
       $scope.$watch('vm.visibleEditTitle', function(val) {
@@ -86,6 +87,12 @@
       function cancelEditTitle() {
         vm.visibleEditTitle = false;
         vm.data.title = previousText;
+      }
+
+      function reloadCard() {
+        CardService.get({ user: user, list: listID }, function(responce) {
+          vm.data.cards = responce.cards;
+        });
       }
     }
 })();

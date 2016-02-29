@@ -35,11 +35,11 @@ module.exports = function(app) {
   /**
    * card stuff
    **/
+  app.get("/api/user/:user/lists/:list/cards", card.getCards);
   app.post("/api/user/:user/lists/:list/cards", card.addCard);
-  // app.get("/api/lists/:id_list/card", card.getcards);
   // app.get("/api/lists/:id_list/card/:id_card", card.getcard);
   // app.put("/api/lists/:id_list/card/:id_card", card.updatecard);
-  // app.delete("/api/lists/:id_list/card/:id_card", card.removecard);
+  app.delete("/api/user/:user/lists/:list/cards/:card", card.removeCard);
 
   // redirect all others router to the index (HTML5 history)
   app.all("/*", function(req, res) {
