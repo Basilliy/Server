@@ -44,6 +44,7 @@
       $scope.$watch('vm.visibleEditTitle', function(val) {
         if (val === true) {
           previousText = vm.data.title;
+          vm.focusOn = true;
         }
       })
 

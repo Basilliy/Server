@@ -39,6 +39,7 @@
       $scope.$watch('vm.changeCardText', function(val) {
         if (val === true) {
           previousText = vm.data.text;
+          vm.focusOn = true;
         }
       })
 

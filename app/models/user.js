@@ -8,7 +8,7 @@ var userSchema = mongoose.Schema({
   email:      String,
   password:   String,
   avatar:     { type: String, default: 'default-profile.png' },
-  background: { type: String, default: 'background--blue' },
+  background: { type: String, default: 'background--green' },
   lists:      [listShema]
 });
 

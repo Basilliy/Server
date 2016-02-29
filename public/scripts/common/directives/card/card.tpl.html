@@ -21,7 +21,7 @@
         <div>
           <p class="card__text" ng-bind="vm.data.text" ng-hide="vm.changeCardText"></p>
           <div class="card__edit__controll" data-nodrag ng-show="vm.changeCardText">
-            <textarea ng-model="vm.data.text" msd-elastic class="card__edit-textarea"></textarea>
+            <textarea ng-model="vm.data.text" msd-elastic class="card__edit-textarea" custom-focus="vm.focusOn"></textarea>
             <button type="button" class="btn btn-success card__new__add" ng-click="vm.saveEditingCard()">Save</button>
             <button type="button" class="close card__new__close" aria-label="Close" ng-click="vm.closeEditingCard()">
               <span aria-hidden="true">&times;</span>
