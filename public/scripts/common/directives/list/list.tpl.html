@@ -44,7 +44,7 @@
     <div class="card__new" ng-show="vm.visibleNewCard">
       <div class="panel panel-default panel-default--margin">
         <div class="panel-body">
-          <textarea class="card__new__textarea" ng-model="vm.newCardsText" custom-focus="vm.focusOn"></textarea>
+          <textarea class="card__new__textarea" ng-model="vm.newCardsText" click-enter="vm.createNewCard()" custom-focus="vm.focusOn"></textarea>
         </div>
       </div>
       <div class="card__new__controll">

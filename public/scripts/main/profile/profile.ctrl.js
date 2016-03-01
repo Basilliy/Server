@@ -10,6 +10,7 @@
       var vm = this;
       vm.updateData = updateData;
       vm.changeAvatar = changeAvatar;
+      vm.savePassword = savePassword;
 
       activate();
 
@@ -22,6 +23,8 @@
       }
 
       function updateData(validate) {
+        vm.messageDone = null;
+        vm.messageError = null;
 
         if (validate) {
           var body = {
@@ -41,19 +44,47 @@
 
       function changeAvatar(image) {
         var reader;
+        vm.messageError = null;
+        vm.messageDone = null;
+
 
         if (image.type.localeCompare("image/jpeg") !== 0 && image.type.localeCompare("image/png") !== 0) {
-          alert('Image file format must be jpeg or png!');
+          vm.messageError = 'Image file format must be jpeg or png!';
         }
 
         reader = new FileReader();
         reader.onload = function (event) {
           UserService.avatar({}, { avatar: event.target.result }, function (response) {
+            vm.messageDone = 'Avatar has been updated';
             vm.avatar = response.avatar;
             $scope.$emit('reloadUserData');
           });
         }
         reader.readAsDataURL(image);
+      }
+
+      function savePassword(validation) {
+        vm.submitted = true;
+        vm.errorConfirmPass = null;
+        vm.messagePass = null;
+        vm.messagePassDone = null;
+        var body = {};
+        if(validation) {
+          if (vm.newPass === vm.newPassConfirm) {
+            body = {
+              oldPass: vm.oldPass,
+              newPass: vm.newPassConfirm
+            }
+
+            UserService.save({}, body, function (response) {
+              vm.messagePassDone = response.message;
+            }, function (error) {
+              vm.messagePass = error.data.message;
+            });
+          } else {
+            vm.errorConfirmPass = true;
+          }
+        }
       }
     }
 

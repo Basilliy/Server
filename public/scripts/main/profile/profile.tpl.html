@@ -19,4 +19,60 @@
       <div class="alert alert-danger" role="alert" ng-show="vm.messageError" ng-bind="vm.messageError"></div>
     </form>
   </div>
+  <div class="profile__wrapper">
+    <hr class="profile__divide">
+    <form name="passForm" class="profile__form">
+      <div class="form-group">
+        <label for="oldPass">Old password</label>
+        <input type="password"
+               id="oldPass"
+               name="oldpass"
+               class="form-control"
+               ng-model="vm.oldPass"
+               required
+               ng-class="{'account__input--error': passForm.oldpass.$invalid && vm.submitted}">
+        <p class="text-danger"
+           ng-show="passForm.oldpass.$invalid && vm.submitted">
+           Please enter your current password.
+        </p>
+      </div>
+      <!-- /.account__fromGroup -->
+      <div class="form-group">
+        <label for="newPass">New password</label>
+        <input type="password"
+               id="newPass"
+               name="newpass"
+               class="form-control"
+               ng-model="vm.newPass"
+               required
+               ng-class="{'account__input--error': passForm.newpass.$invalid && vm.submitted}">
+        <p class="text-danger"
+           ng-show="passForm.newpass.$invalid && vm.submitted">
+           Please enter your new password.
+        </p>
+      </div>
+      <!-- /.account__fromGroup -->
+      <div class="form-group">
+        <label for="newPassConfirm">Confirm new password</label>
+        <input type="password"
+               id="newPassConfirm"
+               name="newpassConfirm"
+               class="form-control"
+               ng-model="vm.newPassConfirm"
+               required
+               ng-class="{'account__input--error': passForm.newpassConfirm.$invalid && vm.submitted}">
+        <p class="text-danger"
+           ng-show="passForm.newpassConfirm.$invalid && vm.submitted">
+           Please confirm your new password.
+        </p>
+      </div>
+      <!-- /.account__fromGroup -->
+      <button type="button" class="btn btn-success profile__submit" ng-click="vm.savePassword(passForm.$valid)">Save new password</button>
+      <p class="alert alert-danger" role="alert" ng-show="vm.errorConfirmPass">
+        Your new password does not match your confirmation password.
+      </p>
+      <div class="alert alert-success" role="alert" ng-show="vm.messagePassDone" ng-bind="vm.messagePassDone"></div>
+      <div class="alert alert-danger" role="alert" ng-show="vm.messagePass" ng-bind="vm.messagePass"></div>
+    </form>
+  </div>
 </section>

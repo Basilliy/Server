@@ -19,7 +19,7 @@ module.exports = function(app) {
    **/
   app.get("/api/user", user.getUserData);
   app.put("/api/user", user.saveUserData);
-  // app.post("/api/user", user.saveUserPassword);
+  app.post("/api/user", user.saveUserPassword);
   app.put("/api/user/avatar", user.saveAvatarImage);
   app.put("/api/user/background", user.saveUserBackground);
 

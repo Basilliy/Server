@@ -60,3 +60,12 @@
   margin-bottom: 10px;
 }
 
+.profile__divide {
+  background: #d6dadc;
+  border: 0;
+  color: #d6dadc;
+  height: 1px;
+  margin-left: 90px;
+  padding: 0;
+}
+

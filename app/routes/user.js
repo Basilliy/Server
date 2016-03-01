@@ -61,33 +61,33 @@ exports.saveUserData = function(req, res) {
     });
 }
 
-// /**
-//  * save new password to current user
-//  */
-// exports.saveUserPassword = function(req, res) {
-//   var userData = req.body;
-//   var queryUser = { _id: req.user._id };
+/**
+ * save new password to current user
+ */
+exports.saveUserPassword = function(req, res) {
+  var userData = req.body;
+  var queryUser = { _id: req.user._id };
 
-//   User
-//     .findOne(queryUser)
-//     .select("password")
-//     .exec(function(err, user) {
-//       if(!user.validPassword(userData.oldPass)) {
-//         return res.status(422).send({
-//             success: false,
-//             message: 'The current password is incorrect'
-//         });
-//       } else {
-//         user.password = user.generateHash(userData.newPass);
+  User
+    .findOne(queryUser)
+    .select("password")
+    .exec(function(err, user) {
+      if(!user.validPassword(userData.oldPass)) {
+        return res.status(422).send({
+            success: false,
+            message: 'The current password is incorrect'
+        });
+      } else {
+        user.password = user.generateHash(userData.newPass);
 
-//         user.save(function (err) {
-//           if (err) return handleError(err);
+        user.save(function (err) {
+          if (err) return handleError(err);
 
-//           res.json({ success: true, message: "Your password has been changed." });
-//         });
-//       }
-//     });
-// }
+          res.json({ success: true, message: "Your password has been changed." });
+        });
+      }
+    });
+}
 
 /**
  * save avatar for user
@@ -114,8 +114,12 @@ exports.saveAvatarImage = function(req, res) {
            * remove previous avatar from file system
            */
           if (user.avatar.localeCompare("default-profile.png") !== 0) {
-            fs.unlink(path + user.avatar, function(err) {
-               if (err) throw err;
+            fs.stat(path + user.avatar, function(err, stat) {
+              if (err == null) {
+                fs.unlink(path + user.avatar, function(err) {
+                   if (err) throw err;
+                });
+              }
             });
           }
 
@@ -123,8 +127,6 @@ exports.saveAvatarImage = function(req, res) {
 
           user.save(function (err) {
             if (err) return handleError(err);
-
-            console.log(user.avatar)
 
             res.json({ avatar: user.avatar });
           });
