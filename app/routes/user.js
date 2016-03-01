@@ -37,7 +37,6 @@ exports.saveUserData = function(req, res) {
         .findOne({ $or: [{ name: userData.name }, { email: userData.email }] })
         .select("name email")
         .exec(function(err, done) {
-          console.log(done)
           if (done && (done.name === userData.name) && (done.name !== currentName)) {
             return res.status(422).send({
                 success: false,

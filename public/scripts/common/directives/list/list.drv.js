@@ -11,7 +11,8 @@
         replace: true,
         scope: {
           data: '=',
-          reload: '&'
+          reload: '&',
+          filteringColor: '='
         },
         templateUrl: './scripts/common/directives/list/list.tpl.html',
         controller: listController,
@@ -39,6 +40,7 @@
       vm.removeList = removeList;
       vm.cancelEditTitle = cancelEditTitle;
       vm.reloadCard = reloadCard;
+      vm.filterCard = filterCard;
 
       // watch start edit text or not
       $scope.$watch('vm.visibleEditTitle', function(val) {
@@ -61,6 +63,12 @@
         ListService.delete({user: user, id: listID }, function (response) {
           vm.reload();
         });
+      }
+
+      function filterCard(card) {
+        if (vm.filteringColor) {
+          return !(card.color == "card__color--" + vm.filteringColor);
+        }
       }
 
       function createNewCard() {

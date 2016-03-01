@@ -44,8 +44,6 @@
         }
       });
 
-      console.log(vm.data.color)
-
       function editCard() {
         vm.showDropdown = (vm.showDropdown)
         ? false

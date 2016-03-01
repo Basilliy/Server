@@ -30,40 +30,40 @@
         <div class="list__menu-filter">
           <h5 class="list__menu-filter-title">Filter cards</h5>
           <div class="list__menu-filter-wrapper">
-            <div class="list__menu-filter-label">
-              <div class="card__color--green"></div>
+            <div class="list__menu-filter-label" data-color="green" ng-click="vm.setFilterColor($event)">
+              <div class="card__color--green card__color-filter"></div>
               <span class="list__menu-filter-text">green label</span>
-              <span class="list__menu-filter-check"></span>
+              <span class="list__menu-filter-check" ng-show="vm.filterColor === 'green'"></span>
             </div>
             <!-- /.list__menu-filter-label -->
-            <div class="list__menu-filter-label">
-              <div class="card__color--yellow"></div>
-              <span class="list__menu-filter-text">red label</span>
-              <span class="list__menu-filter-check"></span>
+            <div class="list__menu-filter-label" data-color="yellow" ng-click="vm.setFilterColor($event)">
+              <div class="card__color--yellow card__color-filter"></div>
+              <span class="list__menu-filter-text">yellow label</span>
+              <span class="list__menu-filter-check" ng-show="vm.filterColor === 'yellow'"></span>
             </div>
             <!-- /.list__menu-filter-label -->
-            <div class="list__menu-filter-label">
-              <div class="card__color--orange"></div>
-              <span class="list__menu-filter-text">blue label</span>
-              <span class="list__menu-filter-check"></span>
-            </div>
-            <!-- /.list__menu-filter-label -->
-            <div class="list__menu-filter-label">
-              <div class="card__color--red"></div>
+            <div class="list__menu-filter-label" data-color="orange" ng-click="vm.setFilterColor($event)">
+              <div class="card__color--orange card__color-filter"></div>
               <span class="list__menu-filter-text">orange label</span>
-              <span class="list__menu-filter-check"></span>
+              <span class="list__menu-filter-check" ng-show="vm.filterColor === 'orange'"></span>
             </div>
             <!-- /.list__menu-filter-label -->
-            <div class="list__menu-filter-label">
-              <div class="card__color--violet"></div>
-              <span class="list__menu-filter-text">pink label</span>
-              <span class="list__menu-filter-check"></span>
+            <div class="list__menu-filter-label" data-color="red" ng-click="vm.setFilterColor($event)">
+              <div class="card__color--red card__color-filter"></div>
+              <span class="list__menu-filter-text">red label</span>
+              <span class="list__menu-filter-check" ng-show="vm.filterColor === 'red'"></span>
             </div>
             <!-- /.list__menu-filter-label -->
-            <div class="list__menu-filter-label">
-              <div class="card__color--blue"></div>
-              <span class="list__menu-filter-text">pink label</span>
-              <span class="list__menu-filter-check"></span>
+            <div class="list__menu-filter-label" data-color="violet" ng-click="vm.setFilterColor($event)">
+              <div class="card__color--violet card__color-filter"></div>
+              <span class="list__menu-filter-text">violet label</span>
+              <span class="list__menu-filter-check" ng-show="vm.filterColor === 'violet'"></span>
+            </div>
+            <!-- /.list__menu-filter-label -->
+            <div class="list__menu-filter-label" data-color="blue" ng-click="vm.setFilterColor($event)">
+              <div class="card__color--blue card__color-filter"></div>
+              <span class="list__menu-filter-text">blue label</span>
+              <span class="list__menu-filter-check" ng-show="vm.filterColor === 'blue'"></span>
             </div>
             <!-- /.list__menu-filter-label -->
           </div>
@@ -79,7 +79,7 @@
     <div class="lists__wrapper" ui-tree="listOptions">
       <div ui-tree-nodes ng-model="vm.lists" class="list__placeholder">
         <div class="list__wrapper" ng-repeat="list in vm.lists" ui-tree-node on-finish-render>
-          <list data="list" reload="vm.reloadLists()"></list>
+          <list data="list" reload="vm.reloadLists()" filtering-color="vm.filterColor"></list>
         </div>
       </div>
       <div class="list__wrapper list__new well well-sm">

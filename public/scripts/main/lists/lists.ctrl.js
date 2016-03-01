@@ -13,6 +13,7 @@
       vm.createNewList = createNewList;
       vm.setVisibleNewList = setVisibleNewList;
       vm.reloadLists = reloadLists;
+      vm.setFilterColor = setFilterColor;
 
       activate();
 
@@ -46,6 +47,16 @@
           document.body.className = responce.background;
           setResizeScroll();
         });
+      }
+
+      function setFilterColor(event) {
+        var dataColor = event.target.dataset.color;
+        if (dataColor === vm.filterColor) {
+          vm.filterColor = null;
+        } else {
+          vm.filterColor = event.target.dataset.color;
+        }
+
       }
 
       function createNewList() {
