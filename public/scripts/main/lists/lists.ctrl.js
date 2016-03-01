@@ -5,8 +5,8 @@
     .module('trelloProject')
     .controller('ListsPageController', ListsPageController);
 
-    ListsPageController.$inject = ["$scope", "$stateParams", "ListService"];
-    function ListsPageController($scope, $stateParams, ListService) {
+    ListsPageController.$inject = ["$scope", "$state", "$stateParams", "ListService"];
+    function ListsPageController($scope, $state, $stateParams, ListService) {
       var vm = this;
       var user = $stateParams.username;
       vm.visibleNewList = false;
@@ -42,11 +42,15 @@
       // });
 
       function activate() {
-        ListService.get({ user: user }, function(responce) {
-          vm.lists = responce.lists;
-          document.body.className = responce.background;
-          setResizeScroll();
-        });
+        if(user) {
+          ListService.get({ user: user }, function(responce) {
+            vm.lists = responce.lists;
+            document.body.className = responce.background;
+            setResizeScroll();
+          });
+        } else {
+          $state.go('notfound')
+        }
       }
 
       function setFilterColor(event) {
