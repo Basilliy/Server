@@ -2,6 +2,10 @@ body {
   overflow: hidden;
 }
 
+button:focus {
+  outline: 0 !important;
+}
+
 .angular-ui-tree-nodes .angular-ui-tree-nodes {
   padding-left: 0;
 }

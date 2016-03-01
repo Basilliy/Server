@@ -45,7 +45,7 @@ gulp.task("css", function() {
   return gulp.src('./public/scripts/**/*.css')
     .pipe(postcss(processors))
     .pipe(sourcemaps.init())
-    // .pipe(cssnano({safe: true}))
+    .pipe(cssnano({safe: true}))
     .pipe(concat('style.css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write("."))
