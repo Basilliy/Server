@@ -114,12 +114,8 @@ exports.saveAvatarImage = function(req, res) {
            * remove previous avatar from file system
            */
           if (user.avatar.localeCompare("default-profile.png") !== 0) {
-            fs.stat(path + user.avatar, function(err, stat) {
-              if (err == null) {
-                fs.unlink(path + user.avatar, function(err) {
-                   if (err) throw err;
-                });
-              }
+            fs.unlink(path + user.avatar, function(err) {
+               if (err) throw err;
             });
           }
 
