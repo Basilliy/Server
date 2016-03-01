@@ -18,6 +18,7 @@
 .list__header__text {
   max-width: 90%;
   display: inline-block;
+  word-wrap: break-word;
 }
 
 .list__settings {
